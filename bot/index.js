@@ -1,7 +1,7 @@
 const tmi = require('tmi.js');
 const commands = require('./commands');
 
-const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = require('./.env.js');
+const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = require('../env');
 
 // Define configuration options
 const opts = {
