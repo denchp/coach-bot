@@ -1,0 +1,14 @@
+{
+  "name": "coach-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/denchp/coach-bot.git",
+  "author": "Patrick Dench <denchp@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "4.17.1"
+  }
+}
