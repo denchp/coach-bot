@@ -3,6 +3,18 @@ const app = express();
 const port = process.env.PORT || 5050;
 const bot = require('./bot');
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.use(express.static('www', { extensions: [ 'html' ] }));
 
-app.listen(port, () => console.log(`Bot ${port}!`));
+app.listen(port, () => console.log(`Overlay on ${port}!`));
+
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(message) {
+    console.log('received: %s', message);
+  });
+
+  ws.send('something');
+});

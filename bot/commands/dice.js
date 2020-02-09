@@ -1,6 +1,6 @@
 const func = (client, target, context, args) => {
     const sides = args[0] || 6;
-    const result = Math.floor(Math.random() * sides) + 1;
+    const result = Math.ceil(Math.random() * sides);
     client.say(target, `${context.username} rolled a ${sides} sided die and got a ${result}`);
 }
 
