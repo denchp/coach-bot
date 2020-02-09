@@ -1,4 +1,4 @@
-const ws = new WebSocket('ws://coachdench-bot.herokuapp.com:8080');
+const ws = new WebSocket('wss://coachdench-bot.herokuapp.com:8080');
 
 ws.on('open', function open() {
   ws.send('something');
