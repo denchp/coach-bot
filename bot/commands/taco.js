@@ -1,3 +1,6 @@
 module.exports = (client, target, context, args, messageHandler) => {
-    messageHandler("Tacos for everyone!");
+    messageHandler({
+        type: 'audio',
+        file: 'taco.mp3'
+    });
 }
