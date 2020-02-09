@@ -14,6 +14,8 @@ const wss = new WebSocket.Server({ server });
 const bot = require('./bot');
 
 wss.on('connection', function connection(ws) {
+    const keepAlive = () => { ws.send(JSON.stringify({ type: 'keep-alive' }), setTimeout(keepAlive, 30000));
+
     ws.on('message', function incoming(message) {
         console.log('received: %s', message);
     });
@@ -21,6 +23,8 @@ wss.on('connection', function connection(ws) {
     bot.onMessage = message => {
         ws.send(JSON.stringify(message));
     };
+
+    keepAlive();
 
     ws.send('Connected to coachbot WSS');
 });

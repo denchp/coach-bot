@@ -11,6 +11,9 @@ ws.addEventListener('message', function (raw) {
         data = JSON.parse(raw.data);
     } catch {}
 
+    if (typeof data === 'string') { data = { type: 'string', data }}
+
+
     if(data.type === 'audio') {
         playAudio(data);
     }

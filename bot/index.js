@@ -36,9 +36,10 @@ function onMessageHandler (target, context, msg, self) {
     return;
 
     const commandArray = commandName.split(' ');
+    const cmd = commands.getCommand(commandArray[0]);
 
-    if (commands[commandArray[0]]) {
-        commands[commandArray[0]](client, target, context, commandArray.filter((v, i) => i > 0), coachBot.onMessage);
+    if (cmd) {
+        cmd(client, target, context, commandArray.filter((v, i) => i > 0), coachBot.onMessage);
     } else {
         console.log(`${commandName}: is borked`);
     }
