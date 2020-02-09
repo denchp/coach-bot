@@ -32,7 +32,7 @@ function onMessageHandler (target, context, msg, self) {
   // Remove whitespace from chat message
   const commandName = msg.trim();
 
-  if (commandName[0] != '!')
+  if (commandName[0] != '!' || commandName[0] != 'o')
     return;
 
     const commandArray = commandName.split(' ');
