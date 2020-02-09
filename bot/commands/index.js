@@ -1,4 +1,4 @@
-const audioCmd = require('audio');
+const audioCmd = require('./audio');
 
 module.exports = {
     getCommand: name => {
