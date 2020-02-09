@@ -3,15 +3,19 @@ const timeouts = {
 };
 
 module.exports = config => (
-    (client, target, context, args, messageHandler) => { 
+    (client, target, context, args, messageHandler) => {
+        if(timeouts[context.username] && timeouts[context.username].audio)
+            return;
+
         if (timeouts[context.username] && timeouts[context.username][config.file]) {
             client.whisper(context.username, `Sorry, that command is on cool down...`);
             return;
         }            
         
-        timeouts[context.username] = { ...timeouts[context.username], [config.file]: true };
+        timeouts[context.username] = { ...timeouts[context.username], [config.file]: true, audio: true };
 
-        setTimeout(() => timeouts[context.username][config.file] = undefined, 30000);
+        setTimeout(() => timeouts[context.username].audio = undefined, 5000);
+        setTimeout(() => timeouts[context.username][config.file] = undefined, 60000);
 
         messageHandler({
             type: 'audio',
