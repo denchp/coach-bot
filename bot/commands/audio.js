@@ -9,7 +9,7 @@ module.exports = config => (
             return;
         }            
         
-        timeouts[context.username] = { ...context.username, [config.file]: true };
+        timeouts[context.username] = { ...timeouts[context.username], [config.file]: true };
 
         setTimeout(() => timeouts[context.username][config.file] = undefined, 30000);
 
