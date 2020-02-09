@@ -23,7 +23,7 @@ const playAudio = async config => {
     const resp = await fetch(`/audio/${config.file}`);
     const file = await resp.arrayBuffer();
 
-    const audioBuffer = context.decodeAudioData(file);
+    const audioBuffer = await context.decodeAudioData(file);
 
     const source = context.createBufferSource();
     source.buffer = audioBuffer;
