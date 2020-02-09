@@ -19,7 +19,7 @@ wss.on('connection', function connection(ws) {
     });
 
     bot.onMessage = message => {
-        ws.send(message);
+        ws.send(JSON.stringify(message));
     };
 
     ws.send('Connected to coachbot WSS');
