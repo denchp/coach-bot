@@ -13,14 +13,14 @@ const wss = new WebSocket.Server({ server });
 
 const bot = require('./bot');
 
-bot.onMessage = message => {
-    wss.send(message)
-};
-
 wss.on('connection', function connection(ws) {
-  ws.on('message', function incoming(message) {
-    console.log('received: %s', message);
-  });
+    ws.on('message', function incoming(message) {
+        console.log('received: %s', message);
+    });
 
-  ws.send('Connected to coachbot WSS');
+    bot.onMessage = message => {
+        ws.send(message)
+    };
+
+    ws.send('Connected to coachbot WSS');
 });
