@@ -1,5 +1,5 @@
-module.exports = (config) => (
-    messageHandler => messageHandler({
+module.exports = config => (
+    (client, target, context, args, messageHandler) => messageHandler({
         type: 'audio',
         file: config.file
     })
