@@ -1,4 +1,4 @@
-timeouts = {
+const timeouts = {
     userName: { commandName: true }
 };
 
