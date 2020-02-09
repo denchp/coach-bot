@@ -9,8 +9,8 @@ module.exports = config => (
         
         timeouts[context.username] = { ...context.username, [config.file]: true };
 
-        setTimeout(() => delete timeouts[context.username][config.file], 10000);
-        
+        setTimeout(() => timeouts[context.username][config.file] = undefined, 30000);
+
         messageHandler({
             type: 'audio',
             file: config.file
