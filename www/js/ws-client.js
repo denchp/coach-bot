@@ -5,10 +5,10 @@ ws.addEventListener('open', function () {
 });
 
 ws.addEventListener('message', function (raw) {
-    let data = raw;
+    let data = raw.data;
 
     try {
-        data = JSON.parse(raw);
+        data = JSON.parse(raw.data);
     } catch {}
 
     if(data.type === 'audio') {
@@ -29,4 +29,4 @@ const playAudio = async config => {
     source.buffer = audioBuffer;
     source.connect(context.destination);
     source.start(0);
-}
+};
