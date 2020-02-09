@@ -18,7 +18,7 @@ module.exports = name => (
         messageHandler({
             type: 'greeting',
             file: name + '.mp3',
-            fallback: 'hi' + math.ceil(Math.random() * 5)
+            fallback: 'hi' + Math.ceil(Math.random() * 5)
         });
     }
 );
