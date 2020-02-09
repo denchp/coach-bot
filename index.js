@@ -14,7 +14,7 @@ const wss = new WebSocket.Server({ server });
 const bot = require('./bot');
 
 bot.onMessage = message => {
-    ws.send(message)
+    wss.send(message)
 };
 
 wss.on('connection', function connection(ws) {
