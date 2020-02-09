@@ -11,7 +11,11 @@ const WebSocket = require('ws');
 
 const wss = new WebSocket.Server({ server });
 
-require('./bot')(wss);
+const bot = require('./bot');
+
+bot.onMessage = message => {
+    ws.send(message)
+};
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {

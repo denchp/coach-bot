@@ -38,7 +38,7 @@ function onMessageHandler (target, context, msg, self) {
     const commandArray = commandName.split(' ');
 
     if (commands[commandArray[0]]) {
-        commands[commandArray[0]](client, target, context, commandArray.filter((v, i) => i > 0));
+        commands[commandArray[0]](client, target, context, commandArray.filter((v, i) => i > 0), coachBot.onMessage);
     } else {
         console.log(`${commandName}: is borked`);
     }
@@ -56,4 +56,8 @@ function onConnectedHandler (addr, port) {
 //     }
 // }
 
-// module.exports = coachBot;
+const coachBot = {
+  
+}
+
+module.exports = coachBot;
