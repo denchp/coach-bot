@@ -1,3 +1,3 @@
-const func = (client, target, context, args, messageHandler) => {
+module.exports = (client, target, context, args, messageHandler) => {
     messageHandler("Tacos for everyone!");
 }
