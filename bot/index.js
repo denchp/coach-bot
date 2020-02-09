@@ -49,11 +49,11 @@ function onConnectedHandler (addr, port) {
     console.log(`* Connected to ${addr}:${port}`);
 }
 
-const coachBot = {
-    getData: url => {
-        const split = url.split('/');
-        return commands[split[2]][split[3]]();
-    }
-}
+// const coachBot = {
+//     getData: url => {
+//         const split = url.split('/');
+//         return commands[split[2]][split[3]]();
+//     }
+// }
 
-module.exports = coachBot;
+// module.exports = coachBot;

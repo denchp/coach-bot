@@ -4,5 +4,6 @@ module.exports = {
     '!confused': require('./confused.js'),
     '!commands': require('./commands.js'),
     '!hangman': require('./hangman.js'),
-    '!eggsembly': require('./eggsembly.js')
+    '!eggsembly': require('./eggsembly.js'),
+    '!taco': require('./taco.js')
 }
