@@ -10,7 +10,7 @@ module.exports = {
             return(audioCmd(audio[cmd]));
         
         if (['!hi', '!hello', 'o/' ].some(s => s === cmd))
-            return(greetingCmd(name));
+            return(greetingCmd(user));
     }
 }
 
