@@ -6,8 +6,8 @@ module.exports = config => (
     (client, target, context, args, messageHandler) => { 
         if (timeouts[context.username] && timeouts[context.username][config.file]) {
             client.whisper(context.username, `Sorry, that command is on cool down...`);
-        }
-            
+            return;
+        }            
         
         timeouts[context.username] = { ...context.username, [config.file]: true };
 
@@ -16,6 +16,6 @@ module.exports = config => (
         messageHandler({
             type: 'audio',
             file: config.file
-        })
+        });
     }
 );
