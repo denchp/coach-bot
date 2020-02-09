@@ -1,12 +1,16 @@
 const audioCmd = require('./audio');
+const greetingCmd = require('./greetings');
 
 module.exports = {
-    getCommand: name => {
-        if (legacy[name] !== undefined)
-            return legacy[name];
+    getCommand: (cmd, user)  => {
+        if (legacy[cmd] !== undefined)
+            return legacy[cmd];
         
-        if (audio[name] !== undefined)
-            return(audioCmd(audio[name]));
+        if (audio[cmd] !== undefined)
+            return(audioCmd(audio[cmd]));
+        
+        if (['!hi', '!hello', 'o/' ].some(s => s === cmd))
+            return(greetings(name));
     }
 }
 

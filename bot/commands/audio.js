@@ -12,7 +12,12 @@ module.exports = config => (
             return;
         }            
         
-        timeouts[context.username] = { ...timeouts[context.username], [config.file]: true, audio: true };
+        timeouts[context.username] = {
+            ...timeouts[context.username], 
+            [config.file]: true,
+            audio: true
+            
+        };
 
         setTimeout(() => timeouts[context.username].audio = undefined, 5000);
         setTimeout(() => timeouts[context.username][config.file] = undefined, 60000);

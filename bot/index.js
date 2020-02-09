@@ -36,7 +36,7 @@ function onMessageHandler (target, context, msg, self) {
     return;
 
     const commandArray = commandName.split(' ');
-    const cmd = commands.getCommand(commandArray[0]);
+    const cmd = commands.getCommand(commandArray[0], context.username);
 
     if (cmd) {
         cmd(client, target, context, commandArray.filter((v, i) => i > 0), coachBot.onMessage);

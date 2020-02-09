@@ -13,7 +13,6 @@ ws.addEventListener('message', function (raw) {
 
     if (typeof data === 'string') { data = { type: 'string', data }}
 
-
     if(data.type === 'audio') {
         playAudio(data);
     }
@@ -23,7 +22,14 @@ const playAudio = async config => {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     var context = new AudioContext();
     
-    const resp = await fetch(`/audio/${config.file}`);
+    let resp = await fetch(`/audio/${config.file}`); // Try to get the specified file
+    
+    if (!resp.ok)
+        resp = await fetch(`/audio/${config.fallback}`); // Try and get the fallback file
+
+    if (!resp.ok)
+        return; // Couldn't get either the primary or fallback, so there's nothing to play
+
     const file = await resp.arrayBuffer();
 
     const audioBuffer = await context.decodeAudioData(file);
