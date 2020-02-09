@@ -13,7 +13,7 @@ ws.addEventListener('message', function (raw) {
 
     if (typeof data === 'string') { data = { type: 'string', data }}
 
-    if(data.type === 'audio') {
+    if(data.type === 'audio' || data.type === 'greeting') {
         playAudio(data);
     }
 });
