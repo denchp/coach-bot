@@ -4,9 +4,6 @@ const timeouts = {
 
 module.exports = name => (
     (client, target, context, args, messageHandler) => {
-        if(timeouts[name])
-            return;
-
         if (timeouts[name]) {
             client.whisper(name, `Sorry, that command is on cool down...`);
             return;
