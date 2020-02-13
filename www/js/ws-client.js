@@ -4,6 +4,7 @@ ws.addEventListener('open', function () {
   ws.send('Initializing connection');
 
     const hb = () => { fetch('/'); setTimeout(hb, 600000) };
+    hb();
 });
 
 ws.addEventListener('message', function (raw) {
