@@ -1,7 +1,9 @@
 const ws = new WebSocket('wss://coachdench-bot.herokuapp.com');
 
 ws.addEventListener('open', function () {
-  ws.send('something');
+  ws.send('Initializing connection');
+
+    const hb = () => { fetch('/'); setTimeout(hb, 600000) };
 });
 
 ws.addEventListener('message', function (raw) {

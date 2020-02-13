@@ -4,7 +4,7 @@ const timeouts = {
 
 module.exports = name => (
     (client, target, context, args, messageHandler) => {
-        if(timeouts[name] && timeouts[name].audio)
+        if(timeouts[name])
             return;
 
         if (timeouts[name]) {

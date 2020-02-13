@@ -26,5 +26,5 @@ wss.on('connection', function connection(ws) {
 
     keepAlive();
 
-    ws.send('Connected to coachbot WSS');
+    ws.send('Connected to CoachBot WSS');
 });
