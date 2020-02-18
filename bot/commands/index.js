@@ -9,8 +9,6 @@ module.exports = {
         
         if (audio[cmd] !== undefined)
             return(audioCmd(audio[cmd]));
-
-        console.log(JSON.stringify(test));
         
         if (test[cmd] !== undefined)
             return(test[cmd]);
