@@ -62,14 +62,14 @@ const coachBot = {
 }
 
 client.on("anongiftpaidupgrade", eventLogger('anongiftpaidupgrade', () => {}));
-client.on("giftpaidupgrade", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
-client.on("resub", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
-client.on("subgift", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
-client.on("submysterygift", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
-client.on("anonsubgift", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
-client.on("anonsubmysterygift", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
-client.on("primepaidupgrade", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
-client.on("subscription", (channel, username, method, message, userstate) => (eventLogger('anongiftpaidupgrade', 
+client.on("giftpaidupgrade", eventLogger('giftpaidupgrade', subEvents.newSubscriber));
+client.on("resub", eventLogger('resub', subEvents.newSubscriber));
+client.on("subgift", eventLogger('subgift', subEvents.newSubscriber));
+client.on("submysterygift", eventLogger('submysterygift', subEvents.newSubscriber));
+client.on("anonsubgift", eventLogger('anonsubgift', subEvents.newSubscriber));
+client.on("anonsubmysterygift", eventLogger('anonsubmysterygift', subEvents.newSubscriber));
+client.on("primepaidupgrade", eventLogger('primepaidupgrade', subEvents.newSubscriber));
+client.on("subscription", (channel, username, method, message, userstate) => (eventLogger('subscription', 
    () => { subEvents.newSubscriber(userName, coachBot.onMessage)
   }))
 );
