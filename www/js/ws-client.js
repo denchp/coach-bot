@@ -1,5 +1,5 @@
 const ws = new WebSocket('wss://coachdench-bot.herokuapp.com');
-const alerts = require('alerts');
+import alerts from 'alerts';
 
 ws.addEventListener('open', function () {
   ws.send('Initializing connection');
