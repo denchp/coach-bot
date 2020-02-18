@@ -9,6 +9,9 @@ module.exports = {
         if (audio[cmd] !== undefined)
             return(audioCmd(audio[cmd]));
         
+        if (test[cmd] !== undefined)
+            return(test[cmd]);
+            
         if (['!hi', '!hello', 'o/' ].some(s => s === cmd))
             return(greetingCmd(user));
     }
