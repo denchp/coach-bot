@@ -13,7 +13,7 @@ module.exports = {
             test = {
                 testSub: (client, target, context, args, messageHandler) => {
                     client.say(target, "Hello world")
-                };
+                }
             }
         if (test[cmd] !== undefined)
             return(test[cmd]);
