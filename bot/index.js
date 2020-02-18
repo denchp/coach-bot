@@ -4,6 +4,12 @@ const subEvents = require('./subEvents');
 
 const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = require('../env');
 
+
+const eventLogger = (name, func) => {
+  console.log(`tmi.js event: ${name}`);
+  func && func();
+}
+
 // Define configuration options
 const opts = {
   identity: {
@@ -68,8 +74,3 @@ client.on("subscription", (channel, username, method, message, userstate) => (ev
 
 
 module.exports = coachBot;
-
-const eventLogger = (name, func) => {
-  console.log(`tmi.js event: ${name}`);
-  func && func();
-}
