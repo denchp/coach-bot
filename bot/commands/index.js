@@ -1,6 +1,6 @@
 const audioCmd = require('./audio');
 const greetingCmd = require('./greetings');
-const test = require('./test');
+let test = require('./test');
 
 module.exports = {
     getCommand: (cmd, user)  => {
