@@ -28,7 +28,7 @@ client.connect();
 // Called every time a message comes in
 function onMessageHandler (target, context, msg, self) {
   if (self) { return; } // Ignore messages from the bot
-  console.log(`Parsing message: ${msp}`);
+  console.log(`Parsing message: ${msg}`);
 
   // Remove whitespace from chat message
   const commandName = msg.trim();
