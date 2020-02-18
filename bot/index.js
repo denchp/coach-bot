@@ -1,5 +1,6 @@
 const tmi = require('tmi.js');
 const commands = require('./commands');
+const subEvent = require('./subEvents');
 
 const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = require('../env');
 
@@ -39,7 +40,7 @@ function onMessageHandler (target, context, msg, self) {
     const cmd = commands.getCommand(commandArray[0], context.username);
 
     if (cmd) {
-        cmd(client, target, context, commandArray.filter((v, i) => i > 0), coachBot.onMessage);
+        cmd(client, target, context, commandArray.slice(1), coachBot.onMessage);
     } else {
         console.log(`${commandName}: is borked`);
     }
@@ -50,15 +51,19 @@ function onConnectedHandler (addr, port) {
     console.log(`* Connected to ${addr}:${port}`);
 }
 
-// const coachBot = {
-//     getData: url => {
-//         const split = url.split('/');
-//         return commands[split[2]][split[3]]();
-//     }
-// }
-
 const coachBot = {
   
 }
+
+client.on("anongiftpaidupgrade", () => {});
+client.on("giftpaidupgrade", newSub);
+client.on("resub", newSub);
+client.on("subgift", newSub);
+client.on("submysterygift", newSub);
+client.on("anonsubgift", newSub);
+client.on("anonsubmysterygift", newSub);
+client.on("primepaidupgrade", newSub);
+client.on("subscription", (channel, username, method, message, userstate) => { newSub(userName, coachBot.onMessage) });
+
 
 module.exports = coachBot;

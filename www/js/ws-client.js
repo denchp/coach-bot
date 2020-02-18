@@ -1,4 +1,5 @@
 const ws = new WebSocket('wss://coachdench-bot.herokuapp.com');
+const alerts = require('alerts');
 
 ws.addEventListener('open', function () {
   ws.send('Initializing connection');
@@ -16,8 +17,14 @@ ws.addEventListener('message', function (raw) {
 
     if (typeof data === 'string') { data = { type: 'string', data }}
 
-    if(data.type === 'audio' || data.type === 'greeting') {
-        playAudio(data);
+    switch(data.type) {
+        case 'audio':
+        case 'greeting':
+            playAudio(data);
+            break;
+        case 'newSubscriber':
+            alerts.subscriber(data);
+            break;
     }
 });
 
