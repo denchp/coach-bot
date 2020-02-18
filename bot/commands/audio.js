@@ -22,7 +22,7 @@ module.exports = config => (
         setTimeout(() => timeouts[context.username].audio = undefined, 5000);
         setTimeout(() => timeouts[context.username][config.file] = undefined, 60000);
 
-        messageHandle && messageHandler({
+        messageHandler && messageHandler({
             type: 'audio',
             file: config.file
         });
