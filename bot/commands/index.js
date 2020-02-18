@@ -10,11 +10,11 @@ module.exports = {
         if (audio[cmd] !== undefined)
             return(audioCmd(audio[cmd]));
         
-            test = {
-                testSub: (client, target, context, args, messageHandler) => {
-                    client.say(target, "Hello world")
-                }
-            }
+            // test = {
+            //     '!testSub': (client, target, context, args, messageHandler) => {
+            //         client.say(target, "Hello world")
+            //     }
+            // }
         if (test[cmd] !== undefined)
             return(test[cmd]);
 
