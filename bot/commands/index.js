@@ -1,6 +1,6 @@
 const audioCmd = require('./audio');
 const greetingCmd = require('./greetings');
-const test = require('./test');
+const test = require('./test/index.js');
 console.log(JSON.stringify(test));
 
 module.exports = {
