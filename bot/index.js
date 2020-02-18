@@ -7,7 +7,7 @@ const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = require('../env');
 
 const eventLogger = (name, func) => {
   console.log(`tmi.js event: ${name}`);
-  func && func();
+  return func || (() => console.log(`No handler for: ${name}`))
 }
 
 // Define configuration options
@@ -70,7 +70,9 @@ client.on("anonsubgift", eventLogger('anongiftpaidupgrade', subEvents.newSubscri
 client.on("anonsubmysterygift", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
 client.on("primepaidupgrade", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
 client.on("subscription", (channel, username, method, message, userstate) => (eventLogger('anongiftpaidupgrade', 
-   () => { subEvents.newSubscriber(userName, coachBot.onMessage) })));
+   () => { subEvents.newSubscriber(userName, coachBot.onMessage)
+  }))
+);
 
 
 module.exports = coachBot;
