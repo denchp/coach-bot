@@ -1,6 +1,6 @@
 const tmi = require('tmi.js');
 const commands = require('./commands');
-const subEvent = require('./subEvents');
+const subEvents = require('./subEvents');
 
 const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = require('../env');
 
@@ -56,14 +56,14 @@ const coachBot = {
 }
 
 client.on("anongiftpaidupgrade", () => {});
-client.on("giftpaidupgrade", newSub);
-client.on("resub", newSub);
-client.on("subgift", newSub);
-client.on("submysterygift", newSub);
-client.on("anonsubgift", newSub);
-client.on("anonsubmysterygift", newSub);
-client.on("primepaidupgrade", newSub);
-client.on("subscription", (channel, username, method, message, userstate) => { newSub(userName, coachBot.onMessage) });
+client.on("giftpaidupgrade", subEvents.newSubscriber);
+client.on("resub", subEvents.newSubscriber);
+client.on("subgift", subEvents.newSubscriber);
+client.on("submysterygift", subEvents.newSubscriber);
+client.on("anonsubgift", subEvents.newSubscriber);
+client.on("anonsubmysterygift", subEvents.newSubscriber);
+client.on("primepaidupgrade", subEvents.newSubscriber);
+client.on("subscription", (channel, username, method, message, userstate) => { subEvents.newSubscriber(userName, coachBot.onMessage) });
 
 
 module.exports = coachBot;
