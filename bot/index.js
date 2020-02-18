@@ -55,15 +55,21 @@ const coachBot = {
   
 }
 
-client.on("anongiftpaidupgrade", () => {});
-client.on("giftpaidupgrade", subEvents.newSubscriber);
-client.on("resub", subEvents.newSubscriber);
-client.on("subgift", subEvents.newSubscriber);
-client.on("submysterygift", subEvents.newSubscriber);
-client.on("anonsubgift", subEvents.newSubscriber);
-client.on("anonsubmysterygift", subEvents.newSubscriber);
-client.on("primepaidupgrade", subEvents.newSubscriber);
-client.on("subscription", (channel, username, method, message, userstate) => { subEvents.newSubscriber(userName, coachBot.onMessage) });
+client.on("anongiftpaidupgrade", eventLogger('anongiftpaidupgrade', () => {}));
+client.on("giftpaidupgrade", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
+client.on("resub", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
+client.on("subgift", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
+client.on("submysterygift", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
+client.on("anonsubgift", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
+client.on("anonsubmysterygift", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
+client.on("primepaidupgrade", eventLogger('anongiftpaidupgrade', subEvents.newSubscriber));
+client.on("subscription", (channel, username, method, message, userstate) => (eventLogger('anongiftpaidupgrade', 
+   () => { subEvents.newSubscriber(userName, coachBot.onMessage) })));
 
 
 module.exports = coachBot;
+
+const eventLogger = (name, func) => {
+  console.log(`tmi.js event: ${name}`);
+  func && func();
+}
