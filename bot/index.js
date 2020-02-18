@@ -7,8 +7,7 @@ const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = require('../env');
 
 
 const eventLogger = (name, func) => {
-  console.log(`tmi.js event: ${name}`);
-  return func || (() => console.log(`No handler for: ${name}`))
+  func ? func() : console.log(`No handler for: ${name}`);
 }
 
 // Define configuration options
@@ -62,17 +61,17 @@ const coachBot = {
   
 }
 
-client.on("anongiftpaidupgrade", eventLogger('anongiftpaidupgrade', () => {}));
-client.on("giftpaidupgrade", eventLogger('giftpaidupgrade', subEvents.newSubscriber));
-client.on("resub", eventLogger('resub', subEvents.newSubscriber));
-client.on("subgift", eventLogger('subgift', subEvents.newSubscriber));
-client.on("submysterygift", eventLogger('submysterygift', subEvents.newSubscriber));
-client.on("anonsubgift", eventLogger('anonsubgift', subEvents.newSubscriber));
-client.on("anonsubmysterygift", eventLogger('anonsubmysterygift', subEvents.newSubscriber));
-client.on("primepaidupgrade", eventLogger('primepaidupgrade', subEvents.newSubscriber));
-client.on("subscription", (channel, username, method, message, userstate) => (eventLogger('subscription', 
+client.on("anongiftpaidupgrade", () => eventLogger('anongiftpaidupgrade', () => {}));
+client.on("giftpaidupgrade", () => eventLogger('giftpaidupgrade', subEvents.newSubscriber));
+client.on("resub", () => eventLogger('resub', subEvents.newSubscriber));
+client.on("subgift", () => eventLogger('subgift', subEvents.newSubscriber));
+client.on("submysterygift", () => eventLogger('submysterygift', subEvents.newSubscriber));
+client.on("anonsubgift", () => eventLogger('anonsubgift', subEvents.newSubscriber));
+client.on("anonsubmysterygift", () => eventLogger('anonsubmysterygift', subEvents.newSubscriber));
+client.on("primepaidupgrade", () => eventLogger('primepaidupgrade', subEvents.newSubscriber));
+client.on("subscription", (channel, username, method, message, userstate) => eventLogger('subscription', 
    () => { subEvents.newSubscriber(userName, coachBot.onMessage)
-  }))
+  })
 );
 
 
