@@ -1,6 +1,6 @@
 const tmi = require('tmi.js');
 const commands = require('./commands');
-// const subEvents = require('./subEvents');
+const subEvents = require('./subEvents');
 
 const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = require('../env');
 
