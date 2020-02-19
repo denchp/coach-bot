@@ -1,10 +1,6 @@
 import { playAudio } from './audio.js';
 
 export const subscriber = data => {
-    playAudio({
-        file: data.audio
-    });
-
     const video = document.getElementById("alert-video");
     const container = document.getElementById("alert-container");
     const labels = [ ...document.getElementsByClassName("alert-label")];
@@ -13,7 +9,12 @@ export const subscriber = data => {
 
     video.src = '/video/subscriber_alert.webm';
     
-    setTimeout(() => video.play(), 500);
+    setTimeout(() => {
+        video.play();
+        playAudio({
+            file: data.audio
+        });
+    }, 500);
 
     video.addEventListener('ended' ,() => container.classList.add('hide'));
 }
