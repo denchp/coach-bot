@@ -16,6 +16,7 @@ span#alert-label {
     left: 50%;
     transform: translate3d(-50%, 0, 0);
     font-size: 4em;
+    transform: rotate(-5deg);
 }
 
 .hide {
@@ -44,10 +45,6 @@ span#alert-label {
   .slashed .top:before,
   .slashed .bot:before {
     content: attr(title);
-    -webkit-transform: rotate(5deg);
-    -moz-transform: rotate(5deg);
-    -o-transform: rotate(5deg);
-    -ms-transform: rotate(5deg);
     transform: rotate(5deg);
   }
   .slashed .top {
