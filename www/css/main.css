@@ -33,6 +33,7 @@ span#alert-label {
     right: 0;
     bottom: 0;
     text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    transform: rotate(-5deg);
   }
   .slashed .top,
   .slashed .bot {
@@ -51,7 +52,7 @@ span#alert-label {
   .slashed .top {
     position: absolute;
     top: 0;
-    left: 5px;
+    left: 8px;
     right: 0;
     bottom: 50%;
   }
