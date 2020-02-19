@@ -1,4 +1,10 @@
+import { playAudio } from './audio.js';
+
 export const subscriber = data => {
+    playAudio({
+        file: data.audio
+    });
+
     const video = document.getElementById("alert-video");
     const container = document.getElementById("alert-container");
     const labels = [ ...document.getElementsByClassName("alert-label")];
