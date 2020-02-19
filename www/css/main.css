@@ -15,8 +15,9 @@ span#alert-label {
     top: 4em;
     left: 50%;
     transform: translate3d(-50%, 0, 0);
-    font-size: 4em;
+    font-size: 3em;
     transform: rotate(-5deg);
+    box-shadow: 2px black;
 }
 
 .hide {
