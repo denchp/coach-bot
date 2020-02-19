@@ -3,3 +3,7 @@ video#alert-video {
     left: 20vw;
     width: 60vw;
 }
+
+.hide {
+    display: none;
+}
