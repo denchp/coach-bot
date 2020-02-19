@@ -1,8 +1,7 @@
 export const subscriber = data => {
     const video = document.getElementById("alert-video");
     const container = document.getElementById("alert-container");
-    const labels = document.getElementsByClassName("alert-label");
-
+    const labels = [ ...document.getElementsByClassName("alert-label")];
     container.classList.remove('hide');
     labels.forEach(e => e.setAttribute('title', data.userName));
 
