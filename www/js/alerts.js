@@ -10,12 +10,12 @@ export const subscriber = data => {
     video.src = '/video/subscriber_alert.webm';
     
     setTimeout(() => {
-        playAudio({
-            file: data.audio
-        });
-        
         video.play();
     }, 500);
+
+    setTimeout(() =>  playAudio({
+        file: data.audio
+    }), 600);
 
     video.addEventListener('ended' ,() => container.classList.add('hide'));
 }
