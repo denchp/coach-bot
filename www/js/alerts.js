@@ -8,14 +8,15 @@ export const subscriber = data => {
     labels.forEach(e => e.setAttribute('title', data.userName));
 
     video.src = '/video/subscriber_alert.webm';
-    
+    playAudio({
+        file: data.audio
+    })
+
     setTimeout(() => {
         video.play();
-    }, 500);
+    }, 0);
 
-    setTimeout(() =>  playAudio({
-        file: data.audio
-    }), 600);
+    // setTimeout(() =>  , 600);
 
     video.addEventListener('ended' ,() => container.classList.add('hide'));
 }
