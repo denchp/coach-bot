@@ -1,9 +1,19 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 video#alert-video {
     position: absolute;
     left: 20vw;
     width: 60vw;
     transition: 250ms opacity;
     opacity: 1;
+}
+
+span#alert-label {
+    width: 100%;
+    font-size: 4em;
+    text-align: center;
 }
 
 .hide {
