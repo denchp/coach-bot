@@ -11,9 +11,12 @@ video#alert-video {
 }
 
 span#alert-label {
-    width: 100%;
+    position: absolute;
+    top: 4em;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
     font-size: 4em;
-    text-align: center;
+    
 }
 
 .hide {
