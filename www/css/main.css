@@ -1,4 +1,5 @@
 video#alert-video {
+    position: absolute;
     left: 25vw;
     width: 50vw;
 }
