@@ -4,7 +4,8 @@ export const subscriber = data => {
     video.classList.remove('hide');
 
     video.src = '/video/subscriber_alert.webm';
-    video.play();
+    
+    setTimeout(() => video.play(), 500);
 
     video.addEventListener('ended' ,() => video.classList.add('hide'));
 }

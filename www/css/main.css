@@ -2,9 +2,12 @@ video#alert-video {
     position: absolute;
     left: 20vw;
     width: 60vw;
+    transition: 250ms opacity;
+    opacity: 1;
 }
 
 .hide {
     transition: 1s opacity;
+    transition-delay: 1s;
     opacity: 0;
 }
