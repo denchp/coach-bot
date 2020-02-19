@@ -6,5 +6,5 @@ export const subscriber = data => {
     video.src = '/video/subscriber_alert.webm';
     video.play();
 
-    video.onended = () => { video.classList.add('hide'); }
+    video.addEventListener('ended' ,() => video.classList.add('hide'));
 }
