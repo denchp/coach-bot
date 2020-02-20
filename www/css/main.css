@@ -26,6 +26,10 @@ span#alert-label {
     opacity: 0;
 }
 
+div#thanks {
+
+}
+
 .slashed {
     position: absolute;
     top: 0;

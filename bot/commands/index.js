@@ -10,11 +10,6 @@ module.exports = {
         if (audio[cmd] !== undefined)
             return(audioCmd(audio[cmd]));
         
-            // test = {
-            //     '!testSub': (client, target, context, args, messageHandler) => {
-            //         client.say(target, "Hello world")
-            //     }
-            // }
         if (test[cmd] !== undefined)
             return(test[cmd]);
 
@@ -36,5 +31,10 @@ const audio = {
     '!taco': { file: 'taco.mp3' },
     '!copyright': { file: 'copyright.mp3' },
     '!meat': { file: 'meat.mp3' },
-    '!pokemon': { file: 'pokemon.mp3' }
+    '!pokemon': { file: 'pokemon.mp3' },
+    '!circleoflife': { file: 'circleoflife.mp3' },
+    '!menu': { file: 'whatsonthemenu.mp3' },
+    '!bragging': { file: 'braggingcamp.mp3' },
+    '!pizza': { file: 'pizzasong.mp3' },
+    '!tunak': { file: 'tunak.mp3', timeout: 600000 }
 }
