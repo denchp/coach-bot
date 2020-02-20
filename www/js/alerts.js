@@ -10,7 +10,7 @@ export const subscriber = async data => {
     video.src = '/video/subscriber_alert.webm';
     playAudio({
         file: data.audio,
-        delay: 1000
+        delay: 5000
     })
 
     setTimeout(() => {
