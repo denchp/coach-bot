@@ -2,7 +2,7 @@ const audioCmd = require('./audio');
 const scatmanUsers = [];
 const scatmanTimeout = false;
 
-exports.scatman = (client, target, context, args, messageHandler) => {
+exports = (client, target, context, args, messageHandler) => {
     if (scatmanTimeout || scatmanUsers.some(u => u === context.username))
         return;
     
