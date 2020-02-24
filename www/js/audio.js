@@ -1,4 +1,4 @@
-export const playAudio = async config => {
+export const playAudio = async (config, onEnded) => {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     var context = new AudioContext();
     
@@ -16,6 +16,26 @@ export const playAudio = async config => {
 
     const source = context.createBufferSource();
     source.buffer = audioBuffer;
+    onEnded && source.on('ended', onEnded);
+
     source.connect(context.destination);
     setTimeout(() => source.start(0), config.delay || 0);
 };
+
+const queue = [];
+export const queueAudio = async config => {
+    queue.push(config, callback);
+    queueProcessor.process();
+}
+
+const queueProcessor = {
+    process: function() {
+        if (this.processing)
+            return;
+        
+        this.processing = true;
+
+        const playNext = () => queue.length && playAudio(queue.shift(), playNext);
+        playNext();
+    }
+}
