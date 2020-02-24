@@ -16,7 +16,7 @@ export const playAudio = async (config, onEnded) => {
 
     const source = context.createBufferSource();
     source.buffer = audioBuffer;
-    onEnded && source.on('ended', onEnded);
+    onEnded && source.addEventListener('ended', onEnded);
 
     source.connect(context.destination);
     setTimeout(() => source.start(0), config.delay || 0);
