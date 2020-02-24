@@ -25,6 +25,7 @@ const legacy = {
     '!commands': require('./commands.js'),
     '!hangman': require('./hangman.js'),
     '!eggsembly': require('./eggsembly.js'),
+    '!scatman': require('./scatman.js')
 }
 
 const audio = { 
