@@ -1,9 +1,8 @@
-const audioCmd = require('./audio');
 const scatmanUsers = [];
 const scatmanTimeout = false;
 
-exports = (client, target, context, args, messageHandler) => {
-    if (scatmanTimeout || scatmanUsers.some(u => u === context.username))
+const queueScatman = (client, target, context, args, messageHandler) => {
+    if (scatmanTimeout) // || scatmanUsers.some(u => u === context.username))
         return;
     
     scatmanUsers.push(context.username);
@@ -20,4 +19,6 @@ exports = (client, target, context, args, messageHandler) => {
         scatmanTimeout = true;
         setTimeout(() => (scatmanTimeout = false), 600000);
     }, 30000)
-}
+};
+
+module.exports = queueScatman;
