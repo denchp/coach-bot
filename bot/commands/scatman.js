@@ -2,7 +2,7 @@ let scatmanUsers = [];
 let scatmanTimeout = false;
 
 const queueScatman = (client, target, context, args, messageHandler) => {
-    if (scatmanTimeout) // || scatmanUsers.some(u => u === context.username))
+    if (scatmanTimeout || scatmanUsers.some(u => u === context.username))
         return;
     
     scatmanUsers.push(context.username);
@@ -21,4 +21,5 @@ const queueScatman = (client, target, context, args, messageHandler) => {
     }, 30000)
 };
 
+queueScatman.description = "All aboard the Scatman train!"
 module.exports = queueScatman;
