@@ -1,4 +1,4 @@
-const scatmanUsers = [];
+let scatmanUsers = [];
 const scatmanTimeout = false;
 
 const queueScatman = (client, target, context, args, messageHandler) => {
