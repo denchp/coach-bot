@@ -1,5 +1,5 @@
 let scatmanUsers = [];
-const scatmanTimeout = false;
+let scatmanTimeout = false;
 
 const queueScatman = (client, target, context, args, messageHandler) => {
     if (scatmanTimeout) // || scatmanUsers.some(u => u === context.username))
