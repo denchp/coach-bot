@@ -27,7 +27,7 @@ span#alert-label {
 }
 
 div#thanks {
-
+  display: none;
 }
 
 .slashed {

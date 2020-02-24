@@ -1,6 +1,6 @@
 const ws = new WebSocket('wss://coachdench-bot.herokuapp.com');
 import * as alerts from "./alerts.js";
-import { playAudio } from "./audio.js";
+import { playAudio, queueAudio } from "./audio.js";
 
 ws.addEventListener('open', function () {
   ws.send('Initializing connection');
