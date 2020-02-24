@@ -24,7 +24,7 @@ export const playAudio = async (config, onEnded) => {
 
 const queue = [];
 export const queueAudio = async config => {
-    queue.push(config, callback);
+    queue.push(config);
     queueProcessor.process();
 }
 
