@@ -25,7 +25,6 @@ const opts = {
   ]
 };
 
-console.log(JSON.stringify(opts));
 // Create a client with our options
 const client = new tmi.client(opts);
 
