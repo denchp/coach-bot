@@ -3,7 +3,11 @@ const commands = require('./commands');
 const subEvents = require('./subEvents');
 const webHooks = require('./webHooks');
 
-const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = require('../env');
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
+const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = process.env;
 
 
 const eventLogger = (name, func) => {
