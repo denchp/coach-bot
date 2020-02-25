@@ -4,11 +4,11 @@ const subEvents = require('./subEvents');
 const webHooks = require('./webHooks');
 
 if (process.env.NODE_ENV !== 'production') {
+  console.log(`Including .env`);
   require('dotenv').config();
 }
 
 const { BOT_USERNAME, OAUTH_TOKEN, CHANNEL_NAME } = process.env;
-
 
 const eventLogger = (name, func) => {
   func ? func() : console.log(`No handler for: ${name}`);
@@ -25,6 +25,7 @@ const opts = {
   ]
 };
 
+console.log(JSON.stringify(opts));
 // Create a client with our options
 const client = new tmi.client(opts);
 
