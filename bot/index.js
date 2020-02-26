@@ -78,5 +78,4 @@ client.on("subscription", (channel, username, method, message, userstate) => eve
   })
 );
 
-
 module.exports = coachBot;
