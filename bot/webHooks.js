@@ -10,7 +10,11 @@ const initHooks = async () => {
     const listener = await whl.create(client, { port: 8090 });
     listener.listen();
 
-    let followers = await listener.subscribeToFollowsToUser(user, (follow) => { console.log(JSON.stringify(follow)); });
+    let followers = await listener.subscribeToFollowsToUser(user, (event) => { console.log(JSON.stringify(event)); });
+    followers.start();
+
+    let subs = await listener.subscribeToSubscriptionEvents(user, (event) => { console.log(JSON.stringify(event)); });
+    subs.start();
 }
 
 initHooks();
