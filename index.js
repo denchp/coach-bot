@@ -1,6 +1,6 @@
 const express = require('express');
 var proxy = require('express-http-proxy');
-const webHooks = require('./webHooks');
+const webHooks = require('./bot/webHooks');
 
 const app = express();
 const port = process.env.PORT || 5050;
