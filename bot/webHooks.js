@@ -20,7 +20,7 @@ const initHooks = async (messageHandler) => {
 
     let followers = await listener.subscribeToFollowsToUser(user, async (event) => {
         console.log(JSON.stringify(event));
-        typeof messageHandler === 'function' ? messageHandler(event) : console.log(`No message handler for event`);;
+        typeof messageHandler === 'function' ? messageHandler({ type: 'newFollow', ...event) : console.log(`No message handler for event`);
     });
 
     console.log(`Listening for followers...`);
