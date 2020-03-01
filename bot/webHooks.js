@@ -9,7 +9,7 @@ const initHooks = async () => {
 
     const listener = await whl.create(client, {
         hostName: 'coachdench-bot.herokuapp.com',
-        port: process.env.port,
+        port: process.env.PORT,
     });
 
     listener.listen();
