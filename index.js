@@ -1,5 +1,6 @@
 const express = require('express');
 var proxy = require('express-http-proxy');
+const webHooks = require('./webHooks');
 
 const app = express();
 const port = process.env.PORT || 5050;
@@ -28,6 +29,7 @@ wss.on('connection', function connection(ws) {
         ws.send(JSON.stringify(message));
     };
 
+    webHooks(bot.onMessage);
     keepAlive();
 
     ws.send('Connected to CoachBot WSS');
