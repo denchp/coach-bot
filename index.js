@@ -1,9 +1,13 @@
 const express = require('express');
+var proxy = require('express-http-proxy');
+
 const app = express();
 const port = process.env.PORT || 5050;
 
 
 app.use(express.static('www', { extensions: [ 'html' ] }));
+
+app.use('/twitch-api', proxy('localhost:8090'));
 
 const server = app.listen(port, () => console.log(`Overlay on ${port}!`));
 

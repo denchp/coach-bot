@@ -10,6 +10,10 @@ const initHooks = async () => {
     const listener = await whl.create(client, {
         hostName: 'coachdench-bot.herokuapp.com',
         port: 8090,
+        reverseProxy: {
+            port: 80,
+            pathPrefix: 'twitch-api'
+        }
     });
 
     listener.listen();
