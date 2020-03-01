@@ -29,5 +29,8 @@ ws.addEventListener('message', function (raw) {
         case 'queue-audio':
             queueAudio(data);
             break;
+        case 'newFollow':
+            alerts.follower(data);
+            break;
     }
 });

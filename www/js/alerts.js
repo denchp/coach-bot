@@ -19,3 +19,7 @@ export const subscriber = async data => {
 
     video.addEventListener('ended' ,() => container.classList.add('hide'));
 }
+
+export const follower = async data => {
+    console.log(`New follower! ${ JSON.stringify(data)}`);
+}

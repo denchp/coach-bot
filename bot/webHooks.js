@@ -3,9 +3,9 @@ const whl = require('twitch-webhooks').default;
 
 const { CLIENT_ID, ACCESS_TOKEN } = process.env;
 
-const initHooks = async () => {
+const initHooks = async (messageHandler) => {
     const client = TwitchClient.withCredentials(CLIENT_ID, ACCESS_TOKEN);
-    const user = await client.helix.users.getUserByName('GLend2');
+    const user = await client.helix.users.getUserByName('RaycatWhoDat');
 
     const listener = await whl.create(client, {
         hostName: 'coachdench-bot.herokuapp.com',
@@ -18,7 +18,10 @@ const initHooks = async () => {
 
     listener.listen();
 
-    let followers = await listener.subscribeToFollowsToUser(user, async (event) => { console.log(JSON.stringify(event)); });
+    let followers = await listener.subscribeToFollowsToUser(user, async (event) => {
+        console.log(JSON.stringify(event));
+        typeof messageHandler === 'function' && messageHandler(event);
+    });
 
     console.log(`Listening for followers...`);
 
@@ -26,4 +29,4 @@ const initHooks = async () => {
     // subs.start();
 }
 
-initHooks();
+module.exports = initHooks;
