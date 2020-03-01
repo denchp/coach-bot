@@ -4,5 +4,5 @@ exports['!testSub'] = (client, target, context, args, messageHandler) => {
     if (!context.badges || !context.badges.broadcaster)
         return;
 
-    subEvents.newSubscriber("Test Subscriber", messageHandler);
+    subEvents.newSubscriber("retroh", messageHandler);
 };
