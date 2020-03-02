@@ -9,9 +9,9 @@ const initHooks = async (messageHandler) => {
         return;
     
     init = true;
-    
+
     const client = TwitchClient.withCredentials(CLIENT_ID, ACCESS_TOKEN);
-    const user = await client.helix.users.getUserByName('RaycatWhoDat');
+    const user = await client.helix.users.getUserByName('CoachDench');
 
     const listener = await whl.create(client, {
         hostName: 'coachdench-bot.herokuapp.com',

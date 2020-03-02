@@ -41,7 +41,7 @@ export const follower = async data => {
     const labels = [ ...document.getElementsByClassName("follow-label")];
     labels.forEach(e => {
         e.setAttribute('title', data._data.from_name)
-        e.style.fontSize = 600 / text.width * 4 + 'px';
+        e.style.fontSize = 600 / text.width * 3 + 'px';
     });
 
     puck.classList.add('animate');
@@ -56,9 +56,9 @@ export const follower = async data => {
         });
 
         crack.classList.add('visible');
-        // setTimeout(() => {
-        //     crack.classList.remove('visible');
-        //     label.classList.remove('animate');
-        // }, 2000);
+        setTimeout(() => {
+            crack.classList.remove('visible');
+            label.classList.remove('animate');
+        }, 3000);
     });
 }
