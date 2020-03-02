@@ -10,6 +10,13 @@
     display: none;
 }
 
+#follow-label {
+    position: absolute;
+    display: none;
+    margin-top: -5.5em;
+    transform: rotate(-26deg);
+}
+
 #puck.animate {
     display: block;
     animation: puck-movement 750ms linear 1;
@@ -32,12 +39,7 @@
     display: block;
 }
 
-#follow-label {
-    position: absolute;
-    display: none;
-    margin-top: -5.5em;
-    transform: rotate(-26deg);
-}
+
 
 @keyframes puck-movement {
     0% {
@@ -55,7 +57,7 @@
 
 @keyframes label-movement {
     0% {
-        top: -50%;
+        top: -100%;
         left: 100vw;
         transform: scale(0) rotate(-26deg);
     }
