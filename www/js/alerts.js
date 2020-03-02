@@ -23,12 +23,21 @@ export const subscriber = async data => {
 export const follower = async data => {
     console.log(`New follower! ${ JSON.stringify(data)}`);
 
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    let text = ctx.measureText(data._data.from_name);
+    console.log(text.width);
+
     const puck = document.getElementById("puck");
     const crack = document.getElementById("crack");
     const label = document.getElementById("follow-label");
 
     const labels = [ ...document.getElementsByClassName("follow-label")];
-    labels.forEach(e => e.setAttribute('title', data._data.from_name));
+    labels.forEach(e => {
+        e.setAttribute('title', data._data.from_name)
+        e.style.fontSize = 600 / text.width * e.style.fontSize;
+    });
 
     puck.classList.add('animate');
     label.classList.add('animate');
