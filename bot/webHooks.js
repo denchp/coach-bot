@@ -2,8 +2,14 @@ const TwitchClient = require('twitch').default;
 const whl = require('twitch-webhooks').default;
 
 const { CLIENT_ID, ACCESS_TOKEN } = process.env;
+let init = false;
 
 const initHooks = async (messageHandler) => {
+    if (init)
+        return;
+    
+    init = true;
+    
     const client = TwitchClient.withCredentials(CLIENT_ID, ACCESS_TOKEN);
     const user = await client.helix.users.getUserByName('RaycatWhoDat');
 
