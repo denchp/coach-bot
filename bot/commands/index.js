@@ -37,6 +37,6 @@ const audio = {
     '!menu': { file: 'whatsonthemenu.mp3' },
     '!bragging': { file: 'braggingcamp.mp3' },
     '!pizza': { file: 'pizzasong.mp3' },
-    '!tunak': { file: 'tunak.mp3', timeout: 600000 }
+    '!tunak': { file: 'tunak.mp3', timeout: 600000 },
     '!help': { file: 'help.mp3', timeout: 600000, message: "[!help] Custom command from glEnd2" }
 }
