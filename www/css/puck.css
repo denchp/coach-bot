@@ -57,12 +57,12 @@
     0% {
         top: -50%;
         left: 100vw;
-        transform: scale(0) rotate(-24deg);
+        transform: scale(0) rotate(-26deg);
     }
 
     100% {
         top: 0;
         left: 0vw;
-        transform: scale(1) rotate(-24deg);
+        transform: scale(1) rotate(-26deg);
     }
 }
