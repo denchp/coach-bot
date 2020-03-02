@@ -1,4 +1,7 @@
+import showMessage from './overlay.js'
 export const playAudio = async (config, onEnded) => {
+    config.message && showMessage(config.message);
+
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     var context = new AudioContext();
     
