@@ -41,7 +41,7 @@ export const follower = async data => {
     const labels = [ ...document.getElementsByClassName("follow-label")];
     labels.forEach(e => {
         e.setAttribute('title', data._data.from_name)
-        e.style.fontSize = 600 * 3.8 / text.width + 'px';
+        e.style.fontSize = 600 * 3.9 / text.width + 'px';
     });
 
     puck.classList.add('animate');
