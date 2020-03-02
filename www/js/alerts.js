@@ -35,8 +35,11 @@ export const follower = async data => {
     
     puck.addEventListener('animationend', ()=> {
         puck.classList.remove('animate');
-        label.classList.remove('animate');
+        
         crack.classList.add('visible');
-        // setTimeout(() => crack.classList.remove('visible'), 2000);
+        // setTimeout(() => {
+        //     crack.classList.remove('visible');
+        //     label.classList.remove('animate');
+        // }, 2000);
     });
 }
