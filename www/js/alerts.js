@@ -22,4 +22,15 @@ export const subscriber = async data => {
 
 export const follower = async data => {
     console.log(`New follower! ${ JSON.stringify(data)}`);
+
+    const puck = document.getElementById("puck");
+    const crack = document.getElementById("crack");
+
+    puck.classList.add('animate');
+    
+    puck.addEventListener('animationend', ()=> {
+        puck.classList.remove('animate');
+        crack.classList.add('visible');
+        setTimeout(() => crack.classList.remove('visible'), 2000);
+    });
 }
