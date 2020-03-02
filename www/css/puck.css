@@ -64,7 +64,7 @@
 
     100% {
         top: 0;
-        left: 0vw;
+        left: 2vw;
         transform: scale(1) rotate(-26deg);
     }
 }
