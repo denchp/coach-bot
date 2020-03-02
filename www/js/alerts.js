@@ -25,12 +25,15 @@ export const follower = async data => {
 
     const puck = document.getElementById("puck");
     const crack = document.getElementById("crack");
+    const label = document.getElementById("label");
 
     puck.classList.add('animate');
+    puck.classList.add('label');
     
     puck.addEventListener('animationend', ()=> {
         puck.classList.remove('animate');
+        label.classList.remove('animate');
         crack.classList.add('visible');
-        setTimeout(() => crack.classList.remove('visible'), 2000);
+        // setTimeout(() => crack.classList.remove('visible'), 2000);
     });
 }

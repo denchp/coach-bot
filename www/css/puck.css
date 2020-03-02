@@ -10,12 +10,16 @@
     display: none;
 }
 
-#puck.animate {
+.animate {
     display: block;
     animation: puck-movement 750ms linear 1;
 }
 
 #crack {
+    max-width: 100vh;
+    position: absolute;
+    margin-left: -25%;
+    left: 50vw;
     display: none;
 }
 
@@ -23,7 +27,9 @@
     display: block;
 }
 
-
+#label {
+    display: none;
+}
 
 @keyframes puck-movement {
     0% {
