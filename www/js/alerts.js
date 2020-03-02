@@ -25,10 +25,14 @@ export const follower = async data => {
 
     const puck = document.getElementById("puck");
     const crack = document.getElementById("crack");
-    const label = document.getElementById("label");
+    const label = document.getElementById("follow-label");
+
+    const labels = [ ...document.getElementsByClassName("follow-label")];
+    container.classList.remove('hide');
+    labels.forEach(e => e.setAttribute('title', data._data.from_name));
 
     puck.classList.add('animate');
-    puck.classList.add('label');
+    label.classList.add('animate');
     
     puck.addEventListener('animationend', ()=> {
         puck.classList.remove('animate');
