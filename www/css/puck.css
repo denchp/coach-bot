@@ -27,10 +27,6 @@
     display: block;
 }
 
-.rotate24 {
-    transform: rotate(-24deg);
-}
-
 #follow-label {
     position: absolute;
     display: none;
@@ -48,5 +44,19 @@
         top: 0;
         left: 50vw;
         transform: scale(1);
+    }
+}
+
+@keyframes label-movement {
+    0% {
+        top: -50%;
+        left: 100vw;
+        transform: scale(0) rotate(-24deg);
+    }
+
+    100% {
+        top: 0;
+        left: 50vw;
+        transform: scale(1) rotate(-24deg);
     }
 }
