@@ -28,7 +28,6 @@ export const follower = async data => {
     const label = document.getElementById("follow-label");
 
     const labels = [ ...document.getElementsByClassName("follow-label")];
-    container.classList.remove('hide');
     labels.forEach(e => e.setAttribute('title', data._data.from_name));
 
     puck.classList.add('animate');
