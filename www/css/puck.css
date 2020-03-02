@@ -13,7 +13,8 @@
 #follow-label {
     position: absolute;
     display: none;
-    margin-top: -5.5em;
+    margin-top: -7em;
+    left: 3em;
     transform: rotate(-26deg);
 }
 
