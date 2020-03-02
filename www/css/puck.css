@@ -10,9 +10,14 @@
     display: none;
 }
 
-#puck.animate, #follow-label.animate {
+#puck.animate {
     display: block;
     animation: puck-movement 750ms linear 1;
+}
+
+#follow-label.animate {
+        display: block;
+        animation: label-movement 750ms linear 1;
 }
 
 #crack {
