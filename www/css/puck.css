@@ -29,6 +29,8 @@
 
 #label {
     display: none;
+    transform: rotate(-15deg);
+    margin-top: -.5em;
 }
 
 @keyframes puck-movement {
