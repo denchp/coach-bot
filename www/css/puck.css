@@ -27,11 +27,14 @@
     display: block;
 }
 
+.rotate24 {
+    transform: rotate(-24deg);
+}
+
 #follow-label {
     position: absolute;
     display: none;
-    transform: rotate(-15deg);
-    margin-top: -.5em;
+    margin-top: -5.5em;
 }
 
 @keyframes puck-movement {
