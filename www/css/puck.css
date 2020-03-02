@@ -10,7 +10,7 @@
     display: none;
 }
 
-.animate {
+#puck.animate, #label.animate {
     display: block;
     animation: puck-movement 750ms linear 1;
 }
