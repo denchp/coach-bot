@@ -27,7 +27,8 @@
     display: block;
 }
 
-#label {
+#follow-label {
+    position: absolute;
     display: none;
     transform: rotate(-15deg);
     margin-top: -.5em;
