@@ -23,6 +23,11 @@ export const subscriber = async data => {
 export const follower = async data => {
     console.log(`New follower! ${ JSON.stringify(data)}`);
 
+    playAudio({
+        file: 'slapshot.mp3',
+        delay: 0
+    });
+
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
@@ -36,7 +41,7 @@ export const follower = async data => {
     const labels = [ ...document.getElementsByClassName("follow-label")];
     labels.forEach(e => {
         e.setAttribute('title', data._data.from_name)
-        e.style.fontSize = 600 / text.width * 67 + 'px';
+        e.style.fontSize = 600 / text.width * 12 + 'px';
     });
 
     puck.classList.add('animate');
@@ -45,6 +50,11 @@ export const follower = async data => {
     puck.addEventListener('animationend', ()=> {
         puck.classList.remove('animate');
         
+        playAudio({
+            file: 'shatter.mp3',
+            delay: 0
+        });
+
         crack.classList.add('visible');
         // setTimeout(() => {
         //     crack.classList.remove('visible');

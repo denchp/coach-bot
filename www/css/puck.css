@@ -36,7 +36,7 @@
     position: absolute;
     display: none;
     margin-top: -5.5em;
-    transform: rotate(-24deg);
+    transform: rotate(-26deg);
 }
 
 @keyframes puck-movement {
