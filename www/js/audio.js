@@ -1,4 +1,5 @@
-import showMessage from './overlay.js'
+import { showMessage } from './overlay.js';
+
 export const playAudio = async (config, onEnded) => {
     config.message && showMessage(config.message);
 
