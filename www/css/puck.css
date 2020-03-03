@@ -25,10 +25,6 @@
 }
 
 #crack {
-    max-width: 100vh;
-    position: absolute;
-    margin-left: -25%;
-    left: 50vw;
     display: none;
 }
 
@@ -49,17 +45,3 @@
         transform: scale(1);
     }
 }
-/* 
-@keyframes label-movement {
-    0% {
-        top: -50%;
-        left: 100vw;
-        transform: scale(0) rotate(-26deg);
-    }
-
-    100% {
-        top: 0;
-        left: 2vw;
-        transform: scale(1) rotate(-26deg);
-    }
-} */
