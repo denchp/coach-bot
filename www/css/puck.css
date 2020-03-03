@@ -23,9 +23,9 @@
     /* animation: puck-movement 750ms linear 1; */
 }
 
-#follow-label.animate {
+#follow-container.animate {
         display: block;
-        animation: label-movement 750ms linear 1;
+        animation: puck-movement 750ms linear 1;
 }
 
 #crack {

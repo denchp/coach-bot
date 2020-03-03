@@ -35,7 +35,7 @@ export const follower = async data => {
     const ctx = canvas.getContext('2d');
 
     let text = ctx.measureText(data._data.from_name);
-    const label = document.getElementById("follow-label");
+    const label = document.getElementById("follow-container");
 
     const labels = [ ...document.getElementsByClassName("follow-label")];
     labels.forEach(e => {
