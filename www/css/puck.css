@@ -20,15 +20,11 @@
     animation: puck-movement 750ms linear 1;
 }
 
-#follow-container.animate #puck {
-    display: block;
-}
-
 #crack {
     display: none;
 }
 
-#crack.visible {
+#crack.visible, #puck.visible {
     display: block;
 }
 
