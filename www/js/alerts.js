@@ -39,7 +39,7 @@ export const follower = async data => {
     const labels = [ ...document.getElementsByClassName("follow-label")];
     labels.forEach(e => {
         e.setAttribute('title', data._data.from_name)
-        e.style.fontSize = 600 * 5 / text.width + 'px';
+        e.style.fontSize = 600 * 12 / text.width + 'px';
     });
 
     container.classList.add('animate');

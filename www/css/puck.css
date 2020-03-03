@@ -1,6 +1,7 @@
 #follow-container {
     min-width: 100vw;
     display: none;
+    position: absolute;
 }
 
 #puck {
@@ -13,9 +14,9 @@
 
 #follow-label {
     position: absolute;
-    margin-top: -8em;
-    left: 1.7em;
-    transform: rotate(-26deg);
+    margin-top: 9em;
+    left: -26em;
+    transform: rotate(-28deg);
 }
 
 #follow-container.animate {
