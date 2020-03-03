@@ -47,8 +47,6 @@ export const follower = async data => {
 }
 
 container.addEventListener('animationend', ()=> {
-    container.classList.remove('animate');
-    
     playAudio({
         file: 'shatter.mp3',
         delay: 0
