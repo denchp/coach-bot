@@ -6,6 +6,7 @@
 
 #puck {
     display: none;
+    position: absolute;
 }
 
 #follow-label {
@@ -22,6 +23,7 @@
 
 #crack {
     display: none;
+    position: absolute;
 }
 
 #crack.visible, #puck.visible {
