@@ -1,5 +1,8 @@
 import { playAudio } from './audio.js';
 
+const puck = document.getElementById("puck");
+const crack = document.getElementById("crack");
+
 export const subscriber = async data => {
     const video = document.getElementById("alert-video");
     const container = document.getElementById("alert-container");
@@ -32,10 +35,6 @@ export const follower = async data => {
     const ctx = canvas.getContext('2d');
 
     let text = ctx.measureText(data._data.from_name);
-    console.log(text.width);
-
-    const puck = document.getElementById("puck");
-    const crack = document.getElementById("crack");
     const label = document.getElementById("follow-label");
 
     const labels = [ ...document.getElementsByClassName("follow-label")];
@@ -46,19 +45,19 @@ export const follower = async data => {
 
     puck.classList.add('animate');
     label.classList.add('animate');
-    
-    puck.addEventListener('animationend', ()=> {
-        puck.classList.remove('animate');
-        
-        playAudio({
-            file: 'shatter.mp3',
-            delay: 0
-        });
-
-        crack.classList.add('visible');
-        setTimeout(() => {
-            crack.classList.remove('visible');
-            label.classList.remove('animate');
-        }, 3000);
-    });
 }
+
+puck.addEventListener('animationend', ()=> {
+    puck.classList.remove('animate');
+    
+    playAudio({
+        file: 'shatter.mp3',
+        delay: 0
+    });
+
+    crack.classList.add('visible');
+    setTimeout(() => {
+        crack.classList.remove('visible');
+        label.classList.remove('animate'); 
+    }, 3000);
+});
