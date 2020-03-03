@@ -39,13 +39,13 @@
 @keyframes puck-movement {
     0% {
         top: -50%;
-        left: 100vw;
+        left: 50vw;
         transform: scale(0);
     }
 
     100% {
         top: 0;
-        left: 50vw;
+        left: 0vw;
         transform: scale(1);
     }
 }

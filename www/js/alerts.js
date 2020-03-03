@@ -37,7 +37,7 @@ export const follower = async data => {
     let text = ctx.measureText(data._data.from_name);
 
     const labels = [ ...document.getElementsByClassName("follow-label")];
-    
+
     labels.forEach(e => {
         e.setAttribute('title', data._data.from_name)
         e.style.fontSize = 600 * 12 / text.width + 'px';
@@ -59,5 +59,5 @@ container.addEventListener('animationend', ()=> {
     setTimeout(() => {
         crack.classList.remove('visible');
         container.classList.remove('animate'); 
-    }, 3000);
+    }, 30000);
 });
