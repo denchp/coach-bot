@@ -41,7 +41,8 @@ const audio = {
     '!circleoflife': { file: 'circleoflife.mp3' },
     '!menu': { file: 'whatsonthemenu.mp3' },
     '!bragging': { file: 'braggingcamp.mp3' },
-    '!pizza': { file: 'pizzasong.mp3' },
-    '!tunak': { file: 'tunak.mp3', globalTimeout: 600000 },
-    '!help': { file: 'help.mp3', globalTimeout: 600000, message: "[!help] Custom command from glEnd2" }
+    '!pizza': { file: 'pizzasong.mp3', globalTimeout: 600000},
+    '!tunak': { file: 'tunak.mp3', globalTimeout: 6000000 },
+    '!help': { file: 'help.mp3', globalTimeout: 6000000, message: "[!help] Custom command from glEnd2" },
+    '!cow': { file: 'cow.mp3', globalTimeout: 6000000, message: "[!help] Custom command from glEnd2" },
 }
