@@ -16,7 +16,7 @@ module.exports = {
             return test[cmd];
         
         if (text[cmd] !== undefined)
-            return test[cmd];
+            return text[cmd];
 
         if (['!hi', '!hello', 'o/' ].some(s => s === cmd))
             return greetingCmd(user);
