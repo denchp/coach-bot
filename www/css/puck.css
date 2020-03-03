@@ -23,8 +23,12 @@
 }
 
 #follow-container.animate {
-        display: block;
-        animation: puck-movement 750ms linear 1;
+    display: block;
+    animation: puck-movement 750ms linear 1;
+}
+
+#follow-container.animate #puck {
+    display: block;
 }
 
 #crack {

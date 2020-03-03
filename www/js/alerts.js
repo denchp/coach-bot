@@ -45,8 +45,8 @@ export const follower = async data => {
     container.classList.add('animate');
 }
 
-puck.addEventListener('animationend', ()=> {
-    puck.classList.remove('animate');
+container.addEventListener('animationend', ()=> {
+    container.classList.remove('animate');
     
     playAudio({
         file: 'shatter.mp3',
