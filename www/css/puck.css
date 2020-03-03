@@ -18,10 +18,6 @@
     transform: rotate(-26deg);
 }
 
-#puck.animate {
-    display: block;
-}
-
 #follow-container.animate {
     display: block;
     animation: puck-movement 750ms linear 1;
