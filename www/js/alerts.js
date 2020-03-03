@@ -1,6 +1,6 @@
 import { playAudio } from './audio.js';
 
-const puck = document.getElementById("puck");
+const container = document.getElementById("follow-container");
 const crack = document.getElementById("crack");
 
 export const subscriber = async data => {
@@ -35,7 +35,6 @@ export const follower = async data => {
     const ctx = canvas.getContext('2d');
 
     let text = ctx.measureText(data._data.from_name);
-    const label = document.getElementById("follow-container");
 
     const labels = [ ...document.getElementsByClassName("follow-label")];
     labels.forEach(e => {
@@ -43,8 +42,7 @@ export const follower = async data => {
         e.style.fontSize = 600 * 5 / text.width + 'px';
     });
 
-    puck.classList.add('animate');
-    label.classList.add('animate');
+    container.classList.add('animate');
 }
 
 puck.addEventListener('animationend', ()=> {
@@ -56,8 +54,9 @@ puck.addEventListener('animationend', ()=> {
     });
 
     crack.classList.add('visible');
+
     setTimeout(() => {
         crack.classList.remove('visible');
-        label.classList.remove('animate'); 
+        container.classList.remove('animate'); 
     }, 3000);
 });
