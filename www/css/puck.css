@@ -1,5 +1,6 @@
 #follow-container {
     min-width: 100vw;
+    display: none;
 }
 
 #puck {
@@ -19,7 +20,6 @@
 
 #puck.animate {
     display: block;
-    /* animation: puck-movement 750ms linear 1; */
 }
 
 #follow-container.animate {
@@ -42,8 +42,6 @@
 #crack.visible {
     display: block;
 }
-
-
 
 @keyframes puck-movement {
     0% {
