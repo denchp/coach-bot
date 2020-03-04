@@ -11,6 +11,8 @@
 #follow-label {
     z-index: 3;
     position: fixed;
+    left: -400px;
+    top: 155px;
     transform: rotate(-28deg);
 }
 
