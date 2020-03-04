@@ -57,5 +57,5 @@ container.addEventListener('animationend', ()=> {
     setTimeout(() => {
         crack.classList.remove('visible');
         container.classList.remove('animate'); 
-    }, 30000);
+    }, 3000);
 });
