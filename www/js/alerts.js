@@ -40,7 +40,7 @@ export const follower = async data => {
 
     labels.forEach(e => {
         e.setAttribute('title', data._data.from_name)
-        e.style.fontSize = 600 * 8 / text.width + 'px';
+        e.style.fontSize = 600 * 7 / text.width + 'px';
     });
 
     container.classList.add('animate');
