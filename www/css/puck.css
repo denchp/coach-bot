@@ -10,9 +10,7 @@
 
 #follow-label {
     z-index: 3;
-    position: absolute;
-    margin-top: 9em;
-    left: -26em;
+    position: fixed;
     transform: rotate(-28deg);
 }
 
