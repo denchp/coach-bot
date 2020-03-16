@@ -17,7 +17,7 @@ const queueScatman = (client, target, context, args, messageHandler) => {
     setTimeout(() => {
         scatmanUsers = [];
         scatmanTimeout = true;
-        setTimeout(() => (scatmanTimeout = false), 600000);
+        setTimeout(() => (scatmanTimeout = false), 300000);
     }, 30000)
 };
 
