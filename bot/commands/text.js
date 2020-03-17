@@ -4,5 +4,8 @@ module.exports = {
     },
     '!command': (client, target, context, args) => {
         client.say(target, `please see !help for command info. (Custom command from glEnd2)`);
+    },
+    '!js': (client, target, context, args) => {
+        client.say(target, 'Q:@CoachDench is that a JavaScript file? A: MAKE IT TypeScript (Custom command from glEnd2)')
     }
 }
