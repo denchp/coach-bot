@@ -66,7 +66,9 @@ const coachBot = {
 
 client.on("anongiftpaidupgrade", () => eventLogger('anongiftpaidupgrade', () => {}));
 client.on("giftpaidupgrade", () => eventLogger('giftpaidupgrade', subEvents.newSubscriber));
-client.on("resub", () => eventLogger('resub', subEvents.newSubscriber));
+client.on("resub", () => (channel, username, method, message, userstate) => eventLogger('subscription', 
+  () => { subEvents.newSubscriber(userName, coachBot.onMessage)
+}));
 client.on("subgift", () => eventLogger('subgift', subEvents.newSubscriber));
 client.on("submysterygift", () => eventLogger('submysterygift', subEvents.newSubscriber));
 client.on("anonsubgift", () => eventLogger('anonsubgift', subEvents.newSubscriber));
