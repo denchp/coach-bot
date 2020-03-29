@@ -9,6 +9,6 @@ module.exports = {
         client.say(target, 'Q:@CoachDench is that a JavaScript file? A: MAKE IT TypeScript (Custom command from glEnd2)')
     },
     '!go alca': (client, target, context, args) => {
-        client.say(target, 'https://cdn.discordapp.com/attachments/657736161955151935/693645284508434532/unknown.png')
+        client.say(target, 'https://cdn.discordapp.com/attachments/657736161955151935/693645284508434532/unknown.png (Custom command from glEnd2)')
     }
 }
