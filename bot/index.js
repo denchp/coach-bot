@@ -61,7 +61,7 @@ function onConnectedHandler (addr, port) {
 }
 
 const coachBot = {
-  onMessage: () => console.log(`Client not connected.`)
+  onMessage: () => console.log(`Client not connected.`) //  SEMICOLON line 64!!!! (Alca via glEnd2) 5/2/2020
 }
 
 client.on("anongiftpaidupgrade", () => eventLogger('anongiftpaidupgrade', () => {}));
