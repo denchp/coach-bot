@@ -36,7 +36,7 @@ const initHooks = async (messageHandler) => {
         typeof messageHandler === 'function' ? messageHandler({ type: 'newSubscriber', ...event }) : console.log(`No message handler for event`);
     });
     
-    subs.start();
+    //subs.start();
 }
 
 module.exports = initHooks;
