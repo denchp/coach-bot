@@ -31,7 +31,7 @@ const initHooks = async (messageHandler) => {
 
     console.log(`Listening for followers...`);
     // Ducks was here (WhiteWithDuck 5/2/2020)
-    let subs = await listener.subscribeToSubscriptionEvents(user, (event) => {
+    let subs = await listener.subscribeToSubscriptionEvents(user, async (event) => {
         console.log(JSON.stringify(event));
         typeof messageHandler === 'function' ? messageHandler({ type: 'newSubscriber', ...event }) : console.log(`No message handler for event`);
     });
