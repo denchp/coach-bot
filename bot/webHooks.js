@@ -31,8 +31,12 @@ const initHooks = async (messageHandler) => {
 
     console.log(`Listening for followers...`);
 
-    // let subs = await listener.subscribeToSubscriptionEvents(user, (event) => { console.log(JSON.stringify(event)); });
-    // subs.start();
+    let subs = await listener.subscribeToSubscriptionEvents(user, (event) => {
+        console.log(JSON.stringify(event));
+        typeof messageHandler === 'function' ? messageHandler({ type: 'newSubscriber', ...event }) : console.log(`No message handler for event`);
+    });
+    
+    subs.start();
 }
 
 module.exports = initHooks;
