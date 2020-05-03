@@ -61,7 +61,7 @@ function onConnectedHandler (addr, port) {
 }
 
 const coachBot = {
-  onMessage = () => console.log(`Client not connected.`);
+  onMessage: () => console.log(`Client not connected.`);
 }
 
 client.on("anongiftpaidupgrade", () => eventLogger('anongiftpaidupgrade', () => {}));
