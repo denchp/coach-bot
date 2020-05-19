@@ -19,18 +19,20 @@ ws.addEventListener('message', function (raw) {
     if (typeof data === 'string') { data = { type: 'string', data }}
 
     switch(data.type) {
+        case 'audio':
         case 'greeting':
             playAudio(data);
             break;
         case 'newSubscriber':
             alerts.subscriber(data);
             break;
-        case 'audio':
         case 'queue-audio':
             queueAudio(data);
             break;
         case 'newFollow':
             alerts.follower(data);
             break;
+        case 'message':
+            
     }
 });
