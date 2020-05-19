@@ -4,8 +4,13 @@ const timeouts = {
 
 module.exports = config => (
     (client, target, context, args, messageHandler) => {
-        if(timeouts[context.username] && timeouts[context.username].audio || timeouts[config.file])
+        if(timeouts[context.username] && timeouts[context.username].audio || timeouts[config.file]) {
+            console.log(`Not executing command:
+                ${ timeouts[context.userName] && [context.userName].audio ? context.userName + " is on cool down" :
+                config.file + " is on cool down"
+             }`);
             return;
+        }
 
         if (timeouts[context.username] && timeouts[context.username][config.file]) {
             client.whisper(context.username, `Sorry, that command is on cool down...`);
