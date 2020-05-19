@@ -13,6 +13,7 @@ module.exports = config => (
         }
 
         if (timeouts[context.username] && timeouts[context.username][config.file]) {
+            console.log(`Cool down hit`);
             client.whisper(context.username, `Sorry, that command is on cool down...`);
             return;
         }            
