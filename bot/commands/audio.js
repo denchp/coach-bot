@@ -6,7 +6,7 @@ module.exports = config => (
     (client, target, context, args, messageHandler) => {
         if(timeouts[context.username] && timeouts[context.username].audio || timeouts[config.file]) {
             console.log(`Not executing command:
-                ${ timeouts[context.userName] && [context.userName].audio ? context.userName + " is on cool down" :
+                ${ timeouts[context.userName] && timeouts[context.userName].audio ? context.userName + " is on cool down" :
                 config.file + " is on cool down"
              }`);
             return;
