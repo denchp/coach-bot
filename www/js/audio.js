@@ -39,7 +39,7 @@ const queueProcessor = {
         
         this.processing = true;
 
-        const playNext = () => queue.length && playAudio(queue.shift(), playNext);
+        const playNext = () => queue.length ? playAudio(queue.shift(), playNext) : this.processing = false;
         playNext();
     }
 }
