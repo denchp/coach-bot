@@ -1,7 +1,7 @@
 const TwitchClient = require('twitch').default;
-const whl = require('twitch-webhooks').default;
+const whl = require('twitch-webhook').default;
 
-const { CLIENT_ID, ACCESS_TOKEN } = process.env;
+const { CLIENT_ID, WEB_HOOKS_SECRET } = process.env;
 let init = false;
 
 const initHooks = async (messageHandler) => {
@@ -10,7 +10,7 @@ const initHooks = async (messageHandler) => {
     
     init = true;
 
-    const client = TwitchClient.withCredentials(CLIENT_ID, ACCESS_TOKEN);
+    const client = TwitchClient.withCredentials(CLIENT_ID, WEB_HOOKS_SECRET);
     const user = await client.helix.users.getUserByName('CoachDench');
 
     const listener = await whl.create(client, {
@@ -30,7 +30,8 @@ const initHooks = async (messageHandler) => {
     });
 
     console.log(`Listening for followers...`);
-    // Ducks was here (WhiteWithDuck 5/2/2020)
+
+    // Ducks was here (WhiteWithDucks 5/2/2020)
     let subs = await listener.subscribeToSubscriptionEvents(user, async (event) => {
         console.log(JSON.stringify(event));
         typeof messageHandler === 'function' ? messageHandler({ type: 'newSubscriber', ...event }) : console.log(`No message handler for event`);
