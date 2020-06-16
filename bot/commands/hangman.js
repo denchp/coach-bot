@@ -6,9 +6,9 @@ let word = '',
     
 let currentTimeout;
 
-const func = (client, target, context, args) => {
+const func = (client, channel, user, args, messageHandler) => {
     const resetGame = msg => {
-        client.say(target, `The game has been reset.`);
+        client.say(channel, `The game has been reset.`);
         clearTimeout(currentTimeout);
         currentTimeout = null;
         word = '';
@@ -19,26 +19,26 @@ const func = (client, target, context, args) => {
         currentTimeout = setTimeout(() => {
             if (!currentTimeout) return;
             
-            client.say(target, `Thanks ${gameOwner}, your word was too hard.. For the rest of us it was "${word}"`);
+            client.say(channel, `Thanks ${gameOwner}, your word was too hard.. For the rest of us it was "${word}"`);
             resetGame();
         }, 5 * 60000);
             
         if(word.length) {
-            client.whisper(target, `Sorry, there's already a game of Hangman going on!`)
+            client.whisper(channel, `Sorry, there's already a game of Hangman going on!`)
                 .then(() => console.log(`Whisper resolved`))
                 .catch(err => console.log(err, 'Error whispering'));    
             return;
         }
         
         if (!words.check(args[1])) {
-            client.whisper(target, `Sorry ${args[1]} is not a valid word; please try again.`);
+            client.whisper(channel, `Sorry ${args[1]} is not a valid word; please try again.`);
             return;
         }
 
         word = args[1] || "ThanksglEnd2";
-        gameOwner = target.slice(1);
+        gameOwner = channel.slice(1);
 
-        client.whisper(target, `Got it, the word is ${word}`);
+        client.whisper(channel, `Got it, the word is ${word}`);
         misses = 0;
         guesses = [];
         client.getChannels().forEach(channel => client.say(channel, "Hangman game has begun!"));
@@ -46,15 +46,15 @@ const func = (client, target, context, args) => {
     }
 
     if (word.length === 0) {
-        client.say(target, 'There\'s no game of hangman right now!');
+        client.say(channel, 'There\'s no game of hangman right now!');
         return;
     }
 
     if (!args[0])
     {
-        client.say(target, `Current guesses: ${guesses.join (', ')}`);
-        client.say(target, `Current misses: ${misses}`)
-        client.say(target, `Current word state: ${ [].map.call(word, l => guesses.includes(l) ? l : '_ ' ).join('') }`)
+        client.say(channel, `Current guesses: ${guesses.join (', ')}`);
+        client.say(channel, `Current misses: ${misses}`)
+        client.say(channel, `Current word state: ${ [].map.call(word, l => guesses.includes(l) ? l : '_ ' ).join('') }`)
         
         return;
     }
@@ -62,13 +62,13 @@ const func = (client, target, context, args) => {
     const guess = args[0];
 
     if (guesses.includes(guess.toLowerCase())) {
-        client.say(target, 'That has already been guessed.')
+        client.say(channel, 'That has already been guessed.')
         return;
     }
 
     if (guess.length > 1) {
         if (guess == word)
-            client.say(target, 'STOP IT ALCA, ONLY USE ONE LETTER!')
+            client.say(channel, 'STOP IT ALCA, ONLY USE ONE LETTER!')
         return;
     }
 
@@ -76,18 +76,18 @@ const func = (client, target, context, args) => {
 
     if (word.indexOf(guess) === -1) {
         misses++;
-        client.say(target, `No, there is no ${guess}!!!`);
+        client.say(channel, `No, there is no ${guess}!!!`);
 
         if (misses === 7) {
-            client.say(target, `Oh no, he dead!  The word was, "${word}"`);
+            client.say(channel, `Oh no, he dead!  The word was, "${word}"`);
             setTimeout(resetGame, 5000);
         }
 
         return;
     }
 
-    client.say(target, `Correct!`);
-    client.say(target, `Current word state: ${ [].map.call(word, l => guesses.includes(l.toLowerCase()) ? l : '_ ' ).join('') }`)
+    client.say(channel, `Correct!`);
+    client.say(channel, `Current word state: ${ [].map.call(word, l => guesses.includes(l.toLowerCase()) ? l : '_ ' ).join('') }`)
 
     if ([].map.call(word, l => guesses.includes(l) ? l : '_ ' ).join('') == word) {
         client.getChannels().forEach(c => client.say(c, `${context.username} won hangman! The word was "${word}"`))

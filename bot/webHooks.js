@@ -1,7 +1,7 @@
 const TwitchClient = require('twitch').default;
-const whl = require('twitch-webhook').default;
+const WebHookListener = require('twitch-webhooks').default;
 
-const { CLIENT_ID, WEB_HOOKS_SECRET } = process.env;
+const { CLIENT_ID, ACCESS_TOKEN, SERVER_URL = "http://localhost" } = process.env;
 let init = false;
 
 const initHooks = async (messageHandler) => {
@@ -10,10 +10,10 @@ const initHooks = async (messageHandler) => {
     
     init = true;
 
-    const client = TwitchClient.withCredentials(CLIENT_ID, WEB_HOOKS_SECRET);
+    const client = TwitchClient.withCredentials(CLIENT_ID, ACCESS_TOKEN);
     const user = await client.helix.users.getUserByName('CoachDench');
 
-    const listener = await whl.create(client, {
+    const listener = await WebHookListener.create(client, {
         hostName: 'coachdench-bot.herokuapp.com',
         port: 8090,
         reverseProxy: {
