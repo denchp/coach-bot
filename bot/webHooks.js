@@ -18,7 +18,8 @@ const initHooks = async (messageHandler) => {
         port: 8090,
         reverseProxy: {
             port: 443,
-            pathPrefix: 'twitch-api'
+            pathPrefix: 'twitch-api',
+            ssl: true
         }
     });
 
