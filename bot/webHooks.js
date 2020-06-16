@@ -14,7 +14,7 @@ const initHooks = async (messageHandler) => {
     const user = await client.helix.users.getUserByName('CoachDench');
 
     const listener = await WebHookListener.create(client, {
-        hostName: 'https://coachdench-bot.herokuapp.com',
+        hostName: 'coachdench-bot.herokuapp.com',
         port: 8090,
         reverseProxy: {
             port: 80,
