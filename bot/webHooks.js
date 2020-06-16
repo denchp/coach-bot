@@ -17,7 +17,7 @@ const initHooks = async (messageHandler) => {
         hostName: 'coachdench-bot.herokuapp.com',
         port: 8090,
         reverseProxy: {
-            port: 80,
+            port: 443,
             pathPrefix: 'twitch-api'
         }
     });
