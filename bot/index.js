@@ -1,3 +1,9 @@
+const coachBot = {
+  onMessage: () => console.log(`Client not connected.`) //  SEMICOLON line 64!!!! (Alca via glEnd2) 5/2/2020
+}
+
+module.exports = coachBot;
+
 (async () => {
   if (process.env.NODE_ENV !== 'production') {
     console.log(`Including .env`);
@@ -53,9 +59,6 @@
       console.log(`* Connected to chat.`);
   }
 
-  const coachBot = {
-    onMessage: () => console.log(`Client not connected.`) //  SEMICOLON line 64!!!! (Alca via glEnd2) 5/2/2020
-  }
 
   client.on("anongiftpaidupgrade", () => eventLogger('anongiftpaidupgrade', () => {}));
   client.on("giftpaidupgrade", () => eventLogger('giftpaidupgrade', subEvents.newSubscriber));
@@ -72,5 +75,4 @@
     })
   );
 
-  module.exports = coachBot;
 })();
