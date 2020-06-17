@@ -7,7 +7,7 @@ exports.cheer = (bitCount, userInfo, messageHandler) => {
         audio = 'OohAPenny.mp3';
     } else if (bitCount < 50) {
         audio = 'chaching.mp3';
-    } else (bit) {
+    } else {
         audio = 'pennies_on_table.mp3';
     }
 
