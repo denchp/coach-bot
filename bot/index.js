@@ -15,7 +15,8 @@ module.exports = coachBot;
 
   const commands = require('./commands');
   const subEvents = require('./subEvents');
-
+  const cheerEvents = require('./cheerEvents');
+  
   const { CLIENT_ID, OAUTH_TOKEN, CLIENT_SECRET, REFRESH_TOKEN } = process.env;
 
   const eventLogger = (name, func) => {
@@ -40,6 +41,7 @@ module.exports = coachBot;
     if (privateMessage.isCheer) {
       cheerEvents.cheer(privateMessage.totalBits, privateMessage.userInfo)
     }
+
     // Remove whitespace from chat message
     const commandName = msg.trim();
 
