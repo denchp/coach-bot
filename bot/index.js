@@ -38,7 +38,6 @@ module.exports = coachBot;
   function onMessageHandler (channel, user, msg, privateMessage) {
     console.log(`Message received.`, user);
 
-    console.log(privateMessage);
     if (privateMessage.isCheer) {
       cheerEvents.cheer(privateMessage.totalBits, privateMessage.userInfo, coachBot.onMessage);
     }

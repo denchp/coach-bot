@@ -26,6 +26,9 @@ ws.addEventListener('message', function (raw) {
         case 'newSubscriber':
             alerts.subscriber(data);
             break;
+        case 'cheer': 
+            alerts.cheer(data);
+            break;
         case 'queue-audio':
             queueAudio(data);
             break;
