@@ -16,13 +16,13 @@ module.exports = coachBot;
   const commands = require('./commands');
   const subEvents = require('./subEvents');
 
-  const { CLIENT_ID, OAUTH_TOKEN } = process.env;
+  const { CLIENT_ID, OAUTH_TOKEN, CLIENT_SECRET, REFRESH_TOKEN } = process.env;
 
   const eventLogger = (name, func) => {
     func ? func() : console.log(`No handler for: ${name}`);
   }
 
-  const twitchClient = TwitchClient.withCredentials(CLIENT_ID, OAUTH_TOKEN);
+  const twitchClient = TwitchClient.withCredentials(CLIENT_ID, OAUTH_TOKEN, undefined, { clientSecret: CLIENT_SECRET, refreshToken: REFRESH_TOKEN });
   const client = await ChatClient.forTwitchClient(twitchClient, { channels: ['CoachDench'] });
   await client.connect();
 
@@ -35,7 +35,7 @@ module.exports = coachBot;
 
   // Called every time a message comes in
   function onMessageHandler (channel, user, msg, privateMessage) {
-    console.log(`Message received.`);
+    console.log(`Message received.`, user);
     
     // Remove whitespace from chat message
     const commandName = msg.trim();

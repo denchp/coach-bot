@@ -1,7 +1,7 @@
 const TwitchClient = require('twitch').default;
 const WebHookListener = require('twitch-webhooks').default;
 
-const { CLIENT_ID, OAUTH_TOKEN } = process.env;
+const { CLIENT_ID, OAUTH_TOKEN, CLIENT_SECRET, REFRESH_TOKEN } = process.env;
 let init = false;
 
 const initHooks = async (messageHandler) => {
@@ -10,7 +10,7 @@ const initHooks = async (messageHandler) => {
     
     init = true;
 
-    const client = TwitchClient.withCredentials(CLIENT_ID, OAUTH_TOKEN);
+    const client = TwitchClient.withCredentials(CLIENT_ID, OAUTH_TOKEN, undefined, { clientSecret: CLIENT_SECRET, refreshToken: REFRESH_TOKEN });
     const user = await client.helix.users.getUserByName('CoachDench');
 
     const listener = await WebHookListener.create(client, {
