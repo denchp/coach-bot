@@ -40,7 +40,7 @@ module.exports = coachBot;
 
     console.log(privateMessage);
     if (privateMessage.isCheer) {
-      cheerEvents.cheer(privateMessage.totalBits, privateMessage.userInfo)
+      cheerEvents.cheer(privateMessage.totalBits, privateMessage.userInfo, coachBot.onMessage);
     }
 
     // Remove whitespace from chat message
