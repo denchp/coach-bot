@@ -29,7 +29,8 @@ module.exports = coachBot;
   // Register our event handlers (defined below)
   client.onPrivmsg(onMessageHandler);
   client.onRegister(onConnectedHandler);
-
+  client.onSub((channel, user, subInfo, msg) => { subEvents.newSubscriber(user, coachBot.onMessage) } );
+  
   // Connect to Twitch:
   client.connect();
 
