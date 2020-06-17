@@ -16,7 +16,7 @@ module.exports = coachBot;
   const commands = require('./commands');
   const subEvents = require('./subEvents');
   const cheerEvents = require('./cheerEvents');
-  
+
   const { CLIENT_ID, OAUTH_TOKEN, CLIENT_SECRET, REFRESH_TOKEN } = process.env;
 
   const eventLogger = (name, func) => {
@@ -37,7 +37,8 @@ module.exports = coachBot;
   // Called every time a message comes in
   function onMessageHandler (channel, user, msg, privateMessage) {
     console.log(`Message received.`, user);
-    
+
+    console.log(privateMessage);
     if (privateMessage.isCheer) {
       cheerEvents.cheer(privateMessage.totalBits, privateMessage.userInfo)
     }
