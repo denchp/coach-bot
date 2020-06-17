@@ -90,7 +90,7 @@ const func = (client, channel, user, args, messageHandler) => {
     client.say(channel, `Current word state: ${ [].map.call(word, l => guesses.includes(l.toLowerCase()) ? l : '_ ' ).join('') }`)
 
     if ([].map.call(word, l => guesses.includes(l) ? l : '_ ' ).join('') == word) {
-        client.getChannels().forEach(c => client.say(c, `${context.username} won hangman! The word was "${word}"`))
+        client.getChannels().forEach(c => client.say(c, `${userName} won hangman! The word was "${word}"`))
         resetGame();
     }
 }

@@ -1,13 +1,13 @@
 let scatmanUsers = [];
 let scatmanTimeout = false;
 
-const queueScatman = (client, target, context, args, messageHandler) => {
-    if (scatmanTimeout || scatmanUsers.some(u => u === context.username)) {
+const queueScatman = (client, target, userName, args, messageHandler) => {
+    if (scatmanTimeout || scatmanUsers.some(u => u === userName)) {
         console.log(`No SCAT!: timeout: ${ scatmanTimeout } users: ${ scatmanUsers.join(', ') }`);
         return;
     }
     
-    scatmanUsers.push(context.username);
+    scatmanUsers.push(userName);
 
     const file = `scatman${scatmanUsers.length}.mp3`;
     
