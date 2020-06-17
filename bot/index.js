@@ -29,8 +29,7 @@ module.exports = coachBot;
   // Register our event handlers (defined below)
   client.onPrivmsg(onMessageHandler);
   client.onRegister(onConnectedHandler);
-  client.onSub((channel, user, subInfo, msg) => { subEvents.newSubscriber(user, coachBot.onMessage) } );
-  
+
   // Connect to Twitch:
   client.connect();
 
@@ -38,11 +37,15 @@ module.exports = coachBot;
   function onMessageHandler (channel, user, msg, privateMessage) {
     console.log(`Message received.`, user);
     
+    if (privateMessage.isCheer) {
+      cheerEvents.cheer(privateMessage.totalBits, privateMessage.userInfo)
+    }
     // Remove whitespace from chat message
     const commandName = msg.trim();
 
     if (commandName[0] != '!' && commandName[0] != 'o')
       return;
+
     console.log(`Parsing message: ${msg}`);
     
     const commandArray = commandName.split(' ');
@@ -60,20 +63,22 @@ module.exports = coachBot;
       console.log(`* Connected to chat.`);
   }
 
+  const handleSubEvent = (channel, user, subInfo, msg) => { subEvents.subscriber(user, subInfo, coachBot.onMessage) };
+  const handleRaidEvent = (channel, user, raidInfo, msg) => { raidEvents.raided(user, raidInfo) };
 
-  client.on("anongiftpaidupgrade", () => eventLogger('anongiftpaidupgrade', () => {}));
-  client.on("giftpaidupgrade", () => eventLogger('giftpaidupgrade', subEvents.newSubscriber));
-  client.on("resub", () => (channel, username, method, message, userstate) => eventLogger('subscription', 
-    () => { subEvents.newSubscriber(userName, coachBot.onMessage)
-  }));
-  client.on("subgift", () => eventLogger('subgift', subEvents.newSubscriber));
-  client.on("submysterygift", () => eventLogger('submysterygift', subEvents.newSubscriber));
-  client.on("anonsubgift", () => eventLogger('anonsubgift', subEvents.newSubscriber));
-  client.on("anonsubmysterygift", () => eventLogger('anonsubmysterygift', subEvents.newSubscriber));
-  client.on("primepaidupgrade", () => eventLogger('primepaidupgrade', subEvents.newSubscriber));
-  client.on("subscription", (channel, username, method, message, userstate) => eventLogger('subscription', 
-    () => { subEvents.newSubscriber(userName, coachBot.onMessage)
-    })
-  );
+  client.onSub(handleSubEvent);
+  client.onSubGift(handleSubEvent);
+  client.onSubExtend(handleSubEvent);
+  client.onStandardPayForward(handleSubEvent);
+  client.onResub(handleSubEvent);
+  client.onPrimePaidUpgrade(handleSubEvent);
+  client.onGiftPaidUpgrade(handleSubEvent);
+  client.onCommunitySub(handleSubEvent);
+  client.onCommunityPayForward(handleSubEvent);
+
+  client.onRaid(handleRaidEvent);
+  client.onHosted(handleRaidEvent);
+
+  client.onBitsBadgeUpgrade(handleBitsEvent)
 
 })();

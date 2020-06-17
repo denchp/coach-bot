@@ -1,4 +1,4 @@
-exports.newSubscriber = (name, messageHandler) => {
+exports.subscriber = (name, messageHandler) => {
     messageHandler({
         type: 'newSubscriber',
         audio: 'heshootshescores.mp3',
