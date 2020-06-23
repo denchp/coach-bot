@@ -47,5 +47,6 @@ const audio = {
     '!cow': { file: 'cow.mp3', globalTimeout: 6000000, message: "[!help] Custom command from glEnd2" },
     '!rip': { file: 'rip_meme.mp3', globalTimeout: 300000 },
     '!evolution': { file: 'salty.mp3', globalTimeout: 300000 },
-    '!oops': { file: 'oops.mp3', globalTimeout: 30000 }
+    '!oops': { file: 'oops.mp3', globalTimeout: 30000 },
+    '!ping': { file: 'ping.mp3', globalTimeout: 60000 }
 }
