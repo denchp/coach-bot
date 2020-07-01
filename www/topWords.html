@@ -33,18 +33,18 @@
             const wordStore = new Store((name, value) => value + 1, () => 1);
             var recognition = new SpeechRecognition();
             recognition.continuous = true;
-            recognition.maxAlternatives = 1;
-            recognition.addEventListener("result", (e) => {
-                recognition.stop();
-                const result = e.results[0]
-                const { transcript } = result[0];
-                const processed = transcript.replace(/[^a-z\s]/gi, "").toUpperCase().split(/\s+/).filter(_ => _);
-                for (const word of processed) {
-                    if (word.length > 5 || whitelist.some(w => word.toLowerCase() === w) && !blacklist.some(w => w === word.toLowerCase()))
-                        wordStore.set(word);
-                }
+                recognition.maxAlternatives = 1;
+                recognition.addEventListener("result", (e) => {
+                    recognition.stop();
+                    const result = e.results[0]
+                    const { transcript } = result[0];
+                    const processed = transcript.replace(/[^a-z\s]/gi, "").toUpperCase().split(/\s+/).filter(_ => _);
+                    for (const word of processed) {
+                        if (word.length > 5 || whitelist.some(w => word.toLowerCase() === w) && !blacklist.some(w => w === word.toLowerCase()))
+                            wordStore.set(word);
+                    }
 
-                computeTop();
+                    computeTop();
             });
     
     
@@ -77,9 +77,7 @@
                             words: sorted.map(([ name,  count ]) => { name, count })
                         }
                     ))
-                }, 10);
-
-                
+                }, 10);                
             }
         </script>
         <h1>Top Words</h1>
