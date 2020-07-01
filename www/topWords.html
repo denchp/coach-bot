@@ -22,6 +22,12 @@
         </script>
         <script>
             const whitelist = [ 'fuck', 'shit', 'ass', 'bitch', 'crap', 'chat', 'bot' ];
+            const blacklist = [
+                //prepositions
+                'aboard', 'about', 'above', 'across', 'after', 'against', 'along', 'amid', 'among', 'anti', 'around', 'as', 'at', 'before', 'behind', 'below', 'beneath', 'beside', 'besides', 'between', 'beyond', 'but', 'by', 'concerning', 'considering', 'despite', 'down', 'during', 'except', 'excepting', 'excluding', 'following', 'for', 'from', 'in', 'inside', 'into', 'like', 'minus', 'near', 'of', 'off', 'on', 'onto', 'opposite', 'outside', 'over', 'past', 'per', 'plus', 'regarding', 'round', 'save', 'since', 'than', 'through', 'to', 'toward', 'towards', 'under', 'underneath', 'unlike', 'until', 'up', 'upon', 'versus', 'via', 'with', 'within', 'without',
+                //conjunctions
+                'and', 'or', 'but', 'nor', 'so', 'for', 'yet', 'after', 'although', 'as', 'as', 'if', 'as', 'long', 'as', 'because', 'before', 'even', 'if', 'even', 'though', 'once', 'since', 'so', 'that', 'though', 'till', 'unless', 'until', 'what', 'when', 'whenever', 'wherever', 'whether', 'while'
+            ];
 
             var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
             var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
@@ -35,7 +41,7 @@
                 const { transcript } = result[0];
                 const processed = transcript.replace(/[^a-z\s]/gi, "").toUpperCase().split(/\s+/).filter(_ => _);
                 for (const word of processed) {
-                    if (word.length > 5 || whitelist.some(w => w.toLowerCase() === word)) 
+                    if (word.length > 5 || whitelist.some(w => word.toLowerCase() === w) && !blacklist.some(w => w === word.toLowerCase()))
                         wordStore.set(word);
                 }
 
