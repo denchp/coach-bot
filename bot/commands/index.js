@@ -48,5 +48,9 @@ const audio = {
     '!rip': { file: 'rip_meme.mp3', globalTimeout: 300000 },
     '!evolution': { file: 'salty.mp3', globalTimeout: 300000 },
     '!oops': { file: 'oops.mp3', globalTimeout: 30000 },
-    '!ping': { file: 'ping.mp3', globalTimeout: 60000 }
+    '!ping': { file: 'ping.mp3', globalTimeout: 60000 },
+    '!darkness': { file: 'darkness.mp3', globalTimeout: 60000 },
+    '!noot': { file: 'noot.mp3', globalTimeout: 60000 },
+    '!broke': { file: 'broke.mp3', globalTimeout: 60000 },
+    '!thedarkness': { file: 'thedarkness.mp3', globalTimeout: 60000 }
 }
