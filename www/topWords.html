@@ -70,9 +70,16 @@
                     document.getElementById("output").innerHTML = `<ol>${sorted.map(([name, count]) => {
                         return `<li><span class="name">${name}</span> (<span class="count">${count}</span>)`;
                     }).join("")}</ol>`;
+
+                    ws.send(JSON.stringify(
+                        {
+                            type: 'wordListUpdate',
+                            words: sorted.map(([ name, count ]))
+                        }
+                    ))
                 }, 10);
 
-                ws.send('Hello!!!');
+                
             }
         </script>
         <h1>Top Words</h1>
