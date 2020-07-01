@@ -1,5 +1,5 @@
 const ws = new WebSocket('wss://coachdench-bot.herokuapp.com');
-import { updateWordList } from './wordList';
+import { updateWordList } from './wordList.js';
 
 ws.addEventListener('open', function () {
   ws.send('Initializing connection');
