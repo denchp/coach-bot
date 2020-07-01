@@ -74,7 +74,7 @@
                     ws.send(JSON.stringify(
                         {
                             type: 'wordListUpdate',
-                            words: sorted.map(([ name, count ]))
+                            words: sorted.map(([ name,  count ]) => { name, count })
                         }
                     ))
                 }, 10);
