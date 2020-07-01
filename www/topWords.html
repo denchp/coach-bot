@@ -1,5 +1,4 @@
 <html>
-    <script type="module" src="/js/topWords-ws-client.js"></script>
     <body>
         <script>
             class Store {
@@ -56,6 +55,13 @@
         </script>
         <script>
             let work_id = 0;
+
+            const ws = new WebSocket('wss://coachdench-bot.herokuapp.com');
+
+            ws.addEventListener('open', function () {
+                ws.send('Initializing connection');
+            });
+
             function computeTop() {
                 clearTimeout(work_id);
                 setTimeout(() => {
