@@ -1,4 +1,5 @@
 <html>
+    <script type="module" src="/js/topwords-ws-client.js"></script>
     <body>
         <script>
             class Store {
@@ -20,6 +21,8 @@
             }
         </script>
         <script>
+            const whitelist = [ 'fuck', 'shit', 'ass', 'bitch', 'crap' ];
+
             var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
             var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
             const wordStore = new Store((name, value) => value + 1, () => 1);
@@ -32,8 +35,10 @@
                 const { transcript } = result[0];
                 const processed = transcript.replace(/[^a-z\s]/gi, "").toUpperCase().split(/\s+/).filter(_ => _);
                 for (const word of processed) {
-                    wordStore.set(word);
+                    if (word.length > 5 || whitelist.some(w => w.toLowerCase() === word)) 
+                        wordStore.set(word);
                 }
+
                 computeTop();
             });
     
@@ -44,6 +49,7 @@
             recognition.start();
         </script>
         <script>
+            import ws from '/js/topwords-ws-client.js';
             let work_id = 0;
             function computeTop() {
                 clearTimeout(work_id);
@@ -54,6 +60,8 @@
                         return `<li><span class="name">${name}</span> (<span class="count">${count}</span>)`;
                     }).join("")}</ol>`;
                 }, 10);
+
+                ws.send('Hello!!!');
             }
         </script>
         <h1>Top Words</h1>
