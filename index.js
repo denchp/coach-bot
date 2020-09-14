@@ -27,7 +27,7 @@ wss.on('connection', function connection(ws) {
 
     bot.onMessage = message => {
 		console.log(`Sending `, JSON.stringify(message));
-        ws.broadcast(JSON.stringify(message));
+        ws.send(JSON.stringify(message));
     };
 
     webHooks(bot.onMessage);

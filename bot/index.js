@@ -67,7 +67,8 @@ module.exports = coachBot;
 
   const handleSubEvent = (channel, user, subInfo, msg) => { subEvents.subscriber(user, subInfo, coachBot.onMessage) };
   const handleRaidEvent = (channel, user, raidInfo, msg) => { raidEvents.raided(user, raidInfo) };
-
+  const handleBitsEvent = (channel, user, bitInfo, msg) => { };
+  
   client.onSub(handleSubEvent);
   client.onSubGift(handleSubEvent);
   client.onSubExtend(handleSubEvent);
