@@ -16,6 +16,6 @@
     "twitch": "4.0.10",
     "twitch-webhooks": "4.0.10",
     "twitch-chat-client": "4.0.10",
-    "ws": "7.2.1"
+    "ws": "7.4.6"
   }
 }
